@@ -371,3 +371,59 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 - To view all of the sensitive columns in the sensitive data model, click **View all sensitive columns**.
 - You can toggle the view back and forth between displaying all of the sensitive columns or just the newly discovered ones.
 - Click **Exit**.
+
+## Part 6. Create a Sensitive Type and Sensitive Category with Oracle Data Safe
+
+### **Step 1:** 
+-	Navigate to the Oracle Data Safe Service Console
+- In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Types**. The Sensitive Types page is displayed. On this page you can view predefined sensitive types and manage your own sensitive types.
+<!-- Image-->
+- Scroll through the list and become familiar with the different sensitive types available. The list contains predefined sensitive types only.
+<!-- Image-->
+- Move the **Hide Oracle Predefined** slider to the right. The list removes the Oracle defined sensitive types, showing only the ones that you have defined.
+<!-- Image-->
+- Move the slider back to the left.
+- To find out how many sensitive types exist in the Library, scroll to the bottom of the page. The list contains 128 items.
+- To sort the list by sensitive category, position your cursor over the **Sensitive Type Category** header, and then click the arrow.
+- To sort the list by sensitive types, position your cursor over the **Sensitive Type Name** header, and then click the arrow.
+- To view the definition for a sensitive type, click directly on any one of the sensitive types. The **Sensitive Type Details** dialog box is displayed.
+<!-- Image-->
+- View the sensitive type's short name, description, column name pattern (regular expression), column comment pattern (regular expression), column data pattern (regular expression), the search pattern semantic (And or Or), the default masking format associated with the sensitive type, and the sensitive category and resource group to which the sensitive type belongs.
+- Click **Close** to close the dialog box.
+- To check if there is a sensitive type that discovers department IDs, in the search field, enter **Department**. The search finds **Department Name**, but nothing for department IDs.
+<!-- Image-->
+- Clear the search field, and then press **Enter** to restore the list.
+- Keep this page open because you return to it later in the lab.
+
+### **Step 2:** 
+- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
+- Run the following script:
+SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
+- Notice that the department ID values are 10, 20, 30, up to 270.
+
+### **Step 3:** 
+- Return to the **Sensitive Types** page in the Oracle Data Safe Console.
+- Click **Add**.
+- The **Create Sensitive Type** dialog box is displayed.
+<!-- Image-->
+- From the **Create Like** drop-down list, select **Employee ID Number**.
+- In the **Sensitive Type Name** field, enter **Custom Department ID Number**.
+- In the **Sensitive Type Short Name** field, enter **Custom Dept ID**.
+- It is helpful to use a word like "Custom" when naming your own sensitive types to make them easier to search for and identify.
+- In the **Sensitive Type Description** field, enter Identification number assigned to departments. Examples: 10, 20, 30…1000.
+- In the **Column Name Pattern** field, enter:
+(^|[_-])(DEPT?|DEPARTMENT).?(ID|NO$|NUM|NBR)<!-- Need to update this to code snippet md-->
+- In the **Column Comment Pattern** field, enter:
+(DEPT?|DEPARTMENT).?(ID|NO |NUM|NBR)<!-- Need to update this to code snippet md-->
+- In the **Column Data Pattern** field, enter:
+^[0-9]{2,4}$<!-- Need to update this to code snippet md-->
+
+- For **Search Pattern Semantic**, select **And**.
+- In the **Default Masking Format** field, enter **Identification Number**.
+- In the **Sensitive Category** field, enter **Sensitive Category**. If you do not specify a sensitive category, the category is automatically named "Uncategorized."
+- Select your resource group.
+- Click **Save**.
+- Your sensitive type is included in the list and is available in the Data Discovery wizard.
+<!-- Image-->
+- Move the **Hide Oracle Predefined** slider to the right to view your custom sensitive type in the list.
+**All Done!**
