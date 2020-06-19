@@ -338,3 +338,36 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 - In the list of sensitive columns, deselect HCM1.EMPLOYEES.AGE.
 - Your sensitive data model is now updated and accurate.
 - Click **Save** then **Exit**.
+
+## Part 6. Update a Sensitive Data Model with Oracle Data Safe
+- Using Oracle Data Safe, perform an incremental update to a sensitive data model by using the Data Discovery wizard.
+### **Step 1:** 
+- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
+
+### **Step 2:** 
+- On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
+ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
+<!-- Need to update this as a code snippet-->
+- On the Navigator tab, click the **Refresh** button.
+- AGE is added to the bottom of the list in the EMPLOYEES table.
+
+### **Step 3:** 
+-	Navigate to the Oracle Data Safe Service Console
+- In the Oracle Data Safe Console, click **Data Discovery**. The Select Target for Data Discovery page is displayed.
+<!-- Image-->
+- Select your target database, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
+<!-- Image-->
+- For **Sensitive Data Model**, click **Pick from Library**.
+<!-- Image-->
+- Click **Continue**. The **Select Sensitive Data Model** page is displayed.
+- Select your sensitive data model (**SDM1**).
+<!-- Image-->
+- Leave **Update the SDM with the target** selected.
+- Click **Continue**. The wizard launches a data discovery job.
+- When the job is finished, notice that the **Detail** column reads **Data discovery job finished successfully**.
+- Click **Continue**. The **Sensitive Data Model: SDM1 page** is displayed.
+- Notice that you have the newly discovered sensitive column, AGE. Only newly discovered columns are displayed at the moment.
+- **Expand all** of the nodes.
+- To view all of the sensitive columns in the sensitive data model, click **View all sensitive columns**.
+- You can toggle the view back and forth between displaying all of the sensitive columns or just the newly discovered ones.
+- Click **Exit**.
