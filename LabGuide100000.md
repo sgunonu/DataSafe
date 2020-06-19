@@ -243,8 +243,8 @@ The report shows you a chart that compares sensitive categories. You can also vi
 -	Click your sensitive data model to open the report.
 
 ### **Step 5:** 
--	Click the ** Library**  tab.
--	Click ** Sensitive Data**  Models.
+-	Click the **Library**  tab.
+-	Click **Sensitive Data**  Models.
 -	The Sensitive Data Models page is displayed, listing the sensitive data models to which you have access. For each sensitive data model, you can view information about when your sensitive data model was created, when it was last updated, and who owns it.
 <!-- Image 4.17-->
 -	Click the name of your sensitive data model to open it.
@@ -255,11 +255,86 @@ The report shows you a chart that compares sensitive categories. You can also vi
 
 
 ### **Step 6:** 
+- Select the check box for your sensitive data model.
+- Click **Download**. Your sensitive data model is downloaded to your browser.
+- Open the file, and review the XML code.
+- Save the file to your desktop as **SDM1.xml**, and then close the file.
 
-Select the check box for your sensitive data model.
-Click **Download**. Your sensitive data model is downloaded to your browser.
-Open the file, and review the XML code.
-Save the file to your desktop as **SDM1.xml**, and then close the file.
+## Part 5. Verify Sensitive Data Model with Oracle Data Safe
+- Using Oracle Data Safe, verify a sensitive data model by using the verification option in the Library and by using the Data Discovery wizard.
 
+### **Step 1:** 
+- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
 
+### **Step 2:** 
+- On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
+ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;  <!-- Need to update this as a code snippet-->
+- Click the **Refresh** button to view the newly added column.
 
+### **Step 3:** 
+-	Navigate to the Oracle Data Safe Service Console
+- In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Data Models**.
+- Select the check box for your sensitive data model that you created in Discovery Lab 1 - Discover Sensitive Data with Oracle Data Safe (**SDM1**).
+- Click **Verify Against Target**.
+<!-- Image-->
+- On the **Select Target for Data Model Verification** page, select your target database, and click **Continue**.
+The verification job is started.
+<!-- Image-->
+- When the job is finished, notice that the **Detail** column reads Data model verification job finished successfully.
+- Click **Continue**.
+- On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE.
+- The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
+<!-- Image-->
+- Click **Continue**
+
+### **Step 4:** 
+- On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
+<!-- Image-->
+- Expand the **HCM1** schema, and then the **EMPLOYEES** table.
+- Select the **AGE** column.
+<!-- Image-->
+- At the top of the dialog box in the **Sensitive Type** field, enter **age**. AGE is automatically retrieved as a sensitive type and you can select it.
+<!-- Image-->
+- Scroll to the bottom and click **Add to Result**. Your sensitive data model is updated to include the AGE column.
+- To verify, enter age in the search box. HCM1.EMPLOYEES.AGE should be listed under **Biographic Information**.
+<!-- Image-->
+- Click **Save and Continue**.
+- Click **Exit**.
+
+### **Step 5:** 
+- Return to SQL Developer.
+- On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
+ALTER TABLE HCM1.EMPLOYEES DROP COLUMN AGE; <!-- Need to update this as a code snippet-->
+- To verify that the EMPLOYEES table no longer has an AGE column, run the following script:
+SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
+- Notice that the AGE column is gone and you receive an "Invalid Identifier" message when you run the command.
+- If the AGE column is still there, click the **Refresh** button to refresh the table.
+
+### **Step 6:** 
+- Return to Oracle Data Safe.
+- Click the **Home** tab, and then click **Data Discovery**.
+<!-- Image-->
+- On the **Select Target for Sensitive Data Discovery** page, select your target database, and then click **Continue**.
+<!-- Image-->
+- The **Select Sensitive Data Model** page is displayed.
+- For **Sensitive Data Model**, select **Pick from Library**, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
+<!-- Image-->
+- Select your sensitive data model, **SDM1**.
+- Scroll down to the bottom of the page and select **Verify if SDM** is compatible with the target.
+<!-- Image-->
+- To start the verification job, click Continue.
+- If the job finishes successfully, click **Continue**. The **Data Model Verification Result** page is displayed.
+- Expand **Missing sensitive columns**, and then HCM1. The Data Discovery wizard identifies the AGE column as missing from the database.
+<!-- Image-->
+
+### **Step 7:** 
+- You can manually update your sensitive data model while continuing to work in the Data Discovery wizard. In which case, you simply deselect your sensitive column and save your sensitive data model. This part, however, shows you another way to do it from the Library.
+
+- Click **Exit** to exit the Data Discovery wizard.
+- Click the **Library** tab, and then click **Sensitive Data Models**.
+- Click your sensitive data model to open it.
+- Search for **AGE**.
+<!-- Image-->
+- In the list of sensitive columns, deselect HCM1.EMPLOYEES.AGE.
+- Your sensitive data model is now updated and accurate.
+- Click **Save** then **Exit**.
