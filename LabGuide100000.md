@@ -32,12 +32,12 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 https://docs.oracle.com/en/cloud/paas/data-safe/udscs/target-database-registration-overview.html#GUID-10B10D3D-8807-4778-8C91-80AEE4F7F4F0 use this table
 - For this lab we will be registering an Autonomous Database
 ### **Step 1:** 
-- To register an Autonomous Database with Oracle Data Safe, you require permissions in Oracle Cloud Infrastructure Identity and Access Management (IAM), on the database, and in Oracle Data Safe.
-- Permission in IAM to access to the database. The user group to which you belong requires at least the **inspect** permission on the **autonomous-database** resource type. For example, to grant the **Data-Safe-Admins** group the **inspect** permission on all Autonomous Databases in the **Finance** compartment, a tenancy administrator could write the following policy statement:
+1. To register an Autonomous Database with Oracle Data Safe, you require permissions in Oracle Cloud Infrastructure Identity and Access Management (IAM), on the database, and in Oracle Data Safe.
+2. Permission in IAM to access to the database. The user group to which you belong requires at least the **inspect** permission on the **autonomous-database** resource type. For example, to grant the **Data-Safe-Admins** group the **inspect** permission on all Autonomous Databases in the **Finance** compartment, a tenancy administrator could write the following policy statement:
 allow group Data-Safe-Admins to inspect autonomous-database in compartment Finance <!-- See how to add code snippet copy on md-->
 
-- Permission to log in to the database as an administrator. You need to be able to log in as a PDB administrator (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL package in order to grant additional roles to the DS$ADMIN service account for Oracle Data Safe.
-- Permission to manage at least one feature in Oracle Data Safe. The user group to which you belong needs to be granted the manage privilege on at least one feature in Oracle Data Safe (Assessment, Activity Auditing, or Discovery and Masking) so that you can register, update, and delete target databases for that feature.
+3. Permission to log in to the database as an administrator. You need to be able to log in as a PDB administrator (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL package in order to grant additional roles to the DS$ADMIN service account for Oracle Data Safe.
+4. Permission to manage at least one feature in Oracle Data Safe. The user group to which you belong needs to be granted the manage privilege on at least one feature in Oracle Data Safe (Assessment, Activity Auditing, or Discovery and Masking) so that you can register, update, and delete target databases for that feature.
 
 ### **Step 2:** 
 - By default, your Autonomous Database comes with a database account specifically created for Oracle Data Safe named DS$ADMIN. - The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. By default, the DS$ASSESSMENT_ROLE and DS$AUDIT_COLLECTION_ROLE roles are already granted. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
@@ -58,16 +58,16 @@ EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
 ### **Step 3:** 
 - You can register an Autonomous Database from its Console in Oracle Cloud Infrastructure Console. From this Console, you can also access the Oracle Data Safe Console.
 
-- Sign in to Oracle Cloud Infrastructure.<!-- Add login console images if skipping lab 0-->
-- In the upper right corner, select the region in which your Autonomous Database resides.
-- From the navigation menu, select **Autonomous Data Warehouse** or **Autonomous Transaction Processing**.
-- From the **COMPARTMENT** drop-down list, select the compartment that contains your Autonomous Database.
-- Click the name of your Autonomous Database. The **Autonomous Database Information** tab on the **Autonomous Database Details** page is displayed.
-- Under **Data Safe**, click **Register**.
-- A Confirm dialog box asks if you are sure you want to register the database with Oracle Data Safe.
-- Click **Confirm**. Wait for registration to finish.
-- When registration is completed, the **Status** reads **Registered**. A resource group is created in Oracle Data Safe with the same name as the compartment that contains the database in Oracle Cloud Infrastructure. The user registering the database is automatically authorized to manage the User Assessment, Security Assessment, and Activity Auditing features for that resource group.
-- (Optional) Click **View Console** to navigate to the Oracle Data Safe Console for the database.
+1. Sign in to Oracle Cloud Infrastructure.<!-- Add login console images if skipping lab 0-->
+2. In the upper right corner, select the region in which your Autonomous Database resides.
+3. From the navigation menu, select **Autonomous Data Warehouse** or **Autonomous Transaction Processing**.
+4. From the **COMPARTMENT** drop-down list, select the compartment that contains your Autonomous Database.
+5. Click the name of your Autonomous Database. The **Autonomous Database Information** tab on the **Autonomous Database Details** page is displayed.
+6. Under **Data Safe**, click **Register**.
+7. A Confirm dialog box asks if you are sure you want to register the database with Oracle Data Safe.
+8. Click **Confirm**. Wait for registration to finish.
+9. When registration is completed, the **Status** reads **Registered**. A resource group is created in Oracle Data Safe with the same name as the compartment that contains the database in Oracle Cloud Infrastructure. The user registering the database is automatically authorized to manage the User Assessment, Security Assessment, and Activity Auditing features for that resource group.
+10. (Optional) Click **View Console** to navigate to the Oracle Data Safe Console for the database.
 
 ## Part 2. Assess Database Configurations with Oracle Data Safe
 -	Using Oracle Data Safe you can assess the security of a database by using the Security Assessment feature and fix issues.
