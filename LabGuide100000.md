@@ -27,19 +27,19 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   To learn more about Oracle Application Express (APEX), feel free to explore the capabilities by clicking on this link: [APEX Overview](https://apex.oracle.com/en/)
 -   Additionally, to see an example of what kind of sites and apps are possible to quickly create with APEX, check out a showcase by clicking on this link: [Built with APEX](https://www.builtwithapex.com/)
 
-## Part 1. Registering a Target Database
+~~## Part 1. Registering a Target Database
 - You can register Autonomous Databases and DB systems in the Oracle cloud with Oracle Data Safe. The following table lists the supported cloud databases, their versions, and whether public or private IP addresses for the databases are supported.
 https://docs.oracle.com/en/cloud/paas/data-safe/udscs/target-database-registration-overview.html#GUID-10B10D3D-8807-4778-8C91-80AEE4F7F4F0 use this table
-- For this lab we will be registering an Autonomous Database
+~~- For this lab we will be registering an Autonomous Database
 ### **Step 1:** 
 1. To register an Autonomous Database with Oracle Data Safe, you require permissions in Oracle Cloud Infrastructure Identity and Access Management (IAM), on the database, and in Oracle Data Safe.
-2. Permission in IAM to access to the database. The user group to which you belong requires at least the **inspect** permission on the **autonomous-database** resource type. For example, to grant the **Data-Safe-Admins** group the **inspect** permission on all Autonomous Databases in the **Finance** compartment, a tenancy administrator could write the following policy statement:
+~~2. Permission in IAM to access to the database. The user group to which you belong requires at least the **inspect** permission on the **autonomous-database** resource type. For example, to grant the **Data-Safe-Admins** group the **inspect** permission on all Autonomous Databases in the **Finance** compartment, a tenancy administrator could write the following policy statement:
 allow group Data-Safe-Admins to inspect autonomous-database in compartment Finance <!-- See how to add code snippet copy on md-->
 
-3. Permission to log in to the database as an administrator. You need to be able to log in as a PDB administrator (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL package in order to grant additional roles to the DS$ADMIN service account for Oracle Data Safe.
-4. Permission to manage at least one feature in Oracle Data Safe. The user group to which you belong needs to be granted the manage privilege on at least one feature in Oracle Data Safe (Assessment, Activity Auditing, or Discovery and Masking) so that you can register, update, and delete target databases for that feature.
+~~3. Permission to log in to the database as an administrator. You need to be able to log in as a PDB administrator (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL package in order to grant additional roles to the DS$ADMIN service account for Oracle Data Safe.
+4. Permission to manage at least one feature in Oracle Data Safe. The user group to which you belong needs to be granted the manage privilege on at least one feature in Oracle Data Safe (Assessment, Activity Auditing, or Discovery and Masking) so that you can register, update, and delete target databases for that feature. ~~
 
-### **Step 2:** 
+### **Step ~~2~~ 1:** 
 - By default, your Autonomous Database comes with a database account specifically created for Oracle Data Safe named DS$ADMIN. - The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. By default, the DS$ASSESSMENT_ROLE and DS$AUDIT_COLLECTION_ROLE roles are already granted. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
 
 - The following table describes the available roles for Autonomous Databases.
@@ -55,7 +55,7 @@ or
 EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
 - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 
-### **Step 3:** 
+### **Step ~~3~~2:** 
 - You can register an Autonomous Database from its Console in Oracle Cloud Infrastructure Console. From this Console, you can also access the Oracle Data Safe Console.
 
 1. Sign in to Oracle Cloud Infrastructure.<!-- Add login console images if skipping lab 0-->
