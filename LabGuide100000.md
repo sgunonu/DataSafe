@@ -15,6 +15,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   Learn how to verify a sensitive data model with Oracle Data Safe
 -   Learn how to update a sensitive data model with Oracle Data Safe
 -   Learn how to create a sensitive type and category with Oracle Data Safe
+![](./images/1.png " ")
 
 ### Required Artifacts
 -   The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
