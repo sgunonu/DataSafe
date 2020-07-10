@@ -28,35 +28,29 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   To learn more about Oracle Application Express (APEX), feel free to explore the capabilities by clicking on this link: [APEX Overview](https://apex.oracle.com/en/)
 -   Additionally, to see an example of what kind of sites and apps are possible to quickly create with APEX, check out a showcase by clicking on this link: [Built with APEX](https://www.builtwithapex.com/)
 
-~~## Part 1. Registering a Target Database
-- You can register Autonomous Databases and DB systems in the Oracle cloud with Oracle Data Safe. The following table lists the supported cloud databases, their versions, and whether public or private IP addresses for the databases are supported.
-https://docs.oracle.com/en/cloud/paas/data-safe/udscs/target-database-registration-overview.html#GUID-10B10D3D-8807-4778-8C91-80AEE4F7F4F0 use this table
-~~- For this lab we will be registering an Autonomous Database
-### **Step 1:** 
-1. To register an Autonomous Database with Oracle Data Safe, you require permissions in Oracle Cloud Infrastructure Identity and Access Management (IAM), on the database, and in Oracle Data Safe.
-~~2. Permission in IAM to access to the database. The user group to which you belong requires at least the **inspect** permission on the **autonomous-database** resource type. For example, to grant the **Data-Safe-Admins** group the **inspect** permission on all Autonomous Databases in the **Finance** compartment, a tenancy administrator could write the following policy statement:
-allow group Data-Safe-Admins to inspect autonomous-database in compartment Finance <!-- See how to add code snippet copy on md-->
 
-~~3. Permission to log in to the database as an administrator. You need to be able to log in as a PDB administrator (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL package in order to grant additional roles to the DS$ADMIN service account for Oracle Data Safe.
-4. Permission to manage at least one feature in Oracle Data Safe. The user group to which you belong needs to be granted the manage privilege on at least one feature in Oracle Data Safe (Assessment, Activity Auditing, or Discovery and Masking) so that you can register, update, and delete target databases for that feature. ~~
+## Part 1. Registering a Target Database
 
-### **Step ~~2~~ 1:** **NOTE**
+### **Step  1:
+** **NOTE**
 - By default, your Autonomous Database comes with a database account specifically created for Oracle Data Safe named DS$ADMIN. - The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. By default, the DS$ASSESSMENT_ROLE and DS$AUDIT_COLLECTION_ROLE roles are already granted. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
 
 - The following table describes the available roles for Autonomous Databases.
 Use the table here https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C
 
-- To grant or revoke roles from the Oracle Data Safe service account on an Autonomous Database database, you can run the DS_TARGET_UTIL PL/SQL package on the Autonomous Database. You need to run this package as the PDB Admin user (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL PL/SQL package.
-<--Image 1.1-->
+
 - You can grant or revoke roles as often as needed.
-- Using a tool like SQL*Plus or SQL Developer, log in to your Autonomous Database as the PDB Admin user (ADMIN) or as a user that has execute permission on the DS_TARGET_UTIL PL/SQL package.
+- Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
 - Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
 EXECUTE DS_TARGET_UTIL.GRANT_ROLE('role_name');
 or
 EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
+- These are the roles you can add now to your SQL Developer worksheet.
+<!--Image 1.1-->
+Description of the tables: https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C
 - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 
-### **Step ~~3~~2:** 
+### **Step 2:** 
 - You can register an Autonomous Database from its Console in Oracle Cloud Infrastructure Console. From this Console, you can also access the Oracle Data Safe Console.
 
 1. Sign in to Oracle Cloud Infrastructure.<!-- Add login console images if skipping lab 0-->
@@ -94,8 +88,7 @@ EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
 <!-- Image 6-->
 ### **Step 2:** 
 -	At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings.
-~~-	Deselect all other risk levels.
--	Scroll through the report to view the medium risk findings.~~
+
 
 ### **Step 3:** 
 -	At the top of the report, click **Evaluate** to filter the report to show only the Evaluate findings.
@@ -283,13 +276,12 @@ The report shows you a chart that compares sensitive categories. You can also vi
 - Using Oracle Data Safe, verify a sensitive data model by using the verification option in the Library and by using the Data Discovery wizard.
 
 ### **Step 1:** 
-- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
-
-### **Step 2:** 
+- Open SQL Developer
 - On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
-ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;  <!-- Need to update this as a code snippet-->
+ALTER TABLE EMPLOYEES 
+ADD AGE NUMBER;  alter table employees <!-- Need to update this as a code snippet-->
 - Click the **Refresh** button to view the newly added column.
-
+<--image--> 
 ### **Step 3:** 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Data Models**.
@@ -304,13 +296,13 @@ The verification job is started.
 - On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE.
 - The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
 <!-- Image-->
-- Click **Continue**
+- Click **Continue** **shadi this part doesnt seem to be effective**
 
 ### **Step 4:** 
 - On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
 <!-- Image-->
 - Expand the **HCM1** schema, and then the **EMPLOYEES** table.
-- Select the **AGE** column.
+- Select the **AGE** column. 
 <!-- Image-->
 - At the top of the dialog box in the **Sensitive Type** field, enter **age**. AGE is automatically retrieved as a sensitive type and you can select it.
 <!-- Image-->
@@ -323,7 +315,8 @@ The verification job is started.
 ### **Step 5:** 
 - Return to SQL Developer.
 - On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
-ALTER TABLE HCM1.EMPLOYEES DROP COLUMN AGE; <!-- Need to update this as a code snippet-->
+ALTER TABLE EMPLOYEES
+DROP COLUMN AGE; <!-- Need to update this as a code snippet-->
 - To verify that the EMPLOYEES table no longer has an AGE column, run the following script:
 SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 - Notice that the AGE column is gone and you receive an "Invalid Identifier" message when you run the command.
@@ -339,7 +332,7 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 - For **Sensitive Data Model**, select **Pick from Library**, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
 <!-- Image-->
 - Select your sensitive data model, **SDM1**.
-- Scroll down to the bottom of the page and select **Verify if SDM** is compatible with the target.
+- Scroll down to the bottom of the page and select **Verify if SDM is compatible with the target.**
 <!-- Image-->
 - To start the verification job, click Continue.
 - If the job finishes successfully, click **Continue**. The **Data Model Verification Result** page is displayed.
@@ -360,17 +353,16 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 
 ## Part 6. Update a Sensitive Data Model with Oracle Data Safe
 - Using Oracle Data Safe, perform an incremental update to a sensitive data model by using the Data Discovery wizard.
-### **Step 1:** 
-- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
 
-### **Step 2:** 
+### **Step 1:** 
+- Open SQL Developer
 - On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
 ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 <!-- Need to update this as a code snippet-->
 - On the Navigator tab, click the **Refresh** button.
 - AGE is added to the bottom of the list in the EMPLOYEES table.
 
-### **Step 3:** 
+### **Step 2:** 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click **Data Discovery**. The Select Target for Data Discovery page is displayed.
 <!-- Image-->
@@ -385,17 +377,17 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 - Click **Continue**. The wizard launches a data discovery job.
 - When the job is finished, notice that the **Detail** column reads **Data discovery job finished successfully**.
 - Click **Continue**. The **Sensitive Data Model: SDM1 page** is displayed.
-- Notice that you have the newly discovered sensitive column, AGE. Only newly discovered columns are displayed at the moment.
+- Notice that you have the newly discovered sensitive column, AGE. **Only newly discovered columns are displayed at the moment.**
 - **Expand all** of the nodes.
 - To view all of the sensitive columns in the sensitive data model, click **View all sensitive columns**.
 - You can toggle the view back and forth between displaying all of the sensitive columns or just the newly discovered ones.
 - Click **Exit**.
 
-## Part 6. Create a Sensitive Type and Sensitive Category with Oracle Data Safe
+## Part 7. Create a Sensitive Type and Sensitive Category with Oracle Data Safe
 
 ### **Step 1:** 
 -	Navigate to the Oracle Data Safe Service Console
-- In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Types**. The Sensitive Types page is displayed. On this page you can view predefined sensitive types and manage your own sensitive types.
+- In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Types**. On this page you can view` predefined sensitive types and manage your own sensitive types.
 <!-- Image-->
 - Scroll through the list and become familiar with the different sensitive types available. The list contains predefined sensitive types only.
 <!-- Image-->
@@ -407,7 +399,7 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 - To sort the list by sensitive types, position your cursor over the **Sensitive Type Name** header, and then click the arrow.
 - To view the definition for a sensitive type, click directly on any one of the sensitive types. The **Sensitive Type Details** dialog box is displayed.
 <!-- Image-->
-- View the sensitive type's short name, description, column name pattern (regular expression), column comment pattern (regular expression), column data pattern (regular expression), the search pattern semantic (And or Or), the default masking format associated with the sensitive type, and the sensitive category and resource group to which the sensitive type belongs.
+- **might not need** Here you can view the sensitive type's short name, description, column name pattern (regular expression), column comment pattern (regular expression), column data pattern (regular expression), the search pattern semantic (And or Or), the default masking format associated with the sensitive type, and the sensitive category and resource group to which the sensitive type belongs.
 - Click **Close** to close the dialog box.
 - To check if there is a sensitive type that discovers department IDs, in the search field, enter **Department**. The search finds **Department Name**, but nothing for department IDs.
 <!-- Image-->
@@ -415,7 +407,7 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 - Keep this page open because you return to it later in the lab.
 
 ### **Step 2:** 
-- Please visit Lab 4: Configuring a development system for use with your EXACS database for instructions to securely configure ExaCS to connect using Oracle SQL Developer, SQLXL and SQL*Plus. <!-- Need to update this to SQL Dev Connection-->
+- Open SQL Developer
 - Run the following script:
 SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 - Notice that the department ID values are 10, 20, 30, up to 270.
@@ -425,11 +417,11 @@ SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 - Click **Add**.
 - The **Create Sensitive Type** dialog box is displayed.
 <!-- Image-->
-- From the **Create Like** drop-down list, select **Employee ID Number**.
+- From the **Create Like** drop-down list, select **Employee ID Number**. **shadi, add it will autofill to something else**
 - In the **Sensitive Type Name** field, enter **Custom Department ID Number**.
 - In the **Sensitive Type Short Name** field, enter **Custom Dept ID**.
-- It is helpful to use a word like "Custom" when naming your own sensitive types to make them easier to search for and identify.
-- In the **Sensitive Type Description** field, enter Identification number assigned to departments. Examples: 10, 20, 30…1000.
+**Tip**: It is helpful to use a word like "Custom" when naming your own sensitive types to make them easier to search for and identify.
+- In the **Sensitive Type Description** field, enter  "Identification number assigned to departments. Examples: 10, 20, 30…1000."
 - In the **Column Name Pattern** field, enter:
 (^|[_-])(DEPT?|DEPARTMENT).?(ID|NO$|NUM|NBR)<!-- Need to update this to code snippet md-->
 - In the **Column Comment Pattern** field, enter:
@@ -446,3 +438,13 @@ SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 <!-- Image-->
 - Move the **Hide Oracle Predefined** slider to the right to view your custom sensitive type in the list.
 **All Done!**
+
+Congratulations! You have just completed the Oracle Data Safe Lab.
+
+**Summary** 
+In this lab, you registered you Autonomous Database to your Data Safe instance. You were able to assess database configurations, access users, discover senstivie data and update sensitive data model. 
+
+**Acknowledgements**
+Author - NA Cloud Engineering - Austin
+Last Updated By/Date - 
+See an issue? Please open up a request here. Please include the workshop name and lab in your request. Please include the workshop name and lab in your request.
