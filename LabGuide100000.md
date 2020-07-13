@@ -15,7 +15,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   Learn how to verify a sensitive data model with Oracle Data Safe
 -   Learn how to update a sensitive data model with Oracle Data Safe
 -   Learn how to create a sensitive type and category with Oracle Data Safe
-![](./images/1.png " ")
+<!--![](./images/1.png " ")-->
 
 ### Required Artifacts
 -   The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
@@ -325,20 +325,20 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 ### **Step 5:** 
 - Return to Oracle Data Safe.
 - Click the **Home** tab, and then click **Data Discovery**.
-<!-- Image--> ![](./images/5.5.1 " ")
+<!-- Image--> ![](./images/5.5.1.png " ")
 - On the **Select Target for Sensitive Data Discovery** page, select your target database, and then click **Continue**.
-<!-- Image--> ![](./images/5.5.2 " ")
+<!-- Image--> ![](./images/5.5.2.png " ")
 - The **Select Sensitive Data Model** page is displayed.
 - For **Sensitive Data Model**, select **Pick from Library**, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
-<!-- Image--> ![](./images/5.5.3 " ")
+<!-- Image--> ![](./images/5.5.3.png " ")
 ![](./images/5.5.4 " ")
 - Select your sensitive data model, **SDM1**.
 - Scroll down to the bottom of the page and select **Verify if SDM is compatible with the target.**
-<!-- Image--> ![](./images/5.5.5 " ")
+<!-- Image--> ![](./images/5.5.5.png " ")
 - To start the verification job, click Continue.
 - If the job finishes successfully, click **Continue**. The **Data Model Verification Result** page is displayed.
 - Expand **Missing sensitive columns**, and then HCM1. The Data Discovery wizard identifies the AGE column as missing from the database.
-<!-- Image--> ![](./images/5.5.7 " ")
+<!-- Image--> ![](./images/5.5.7.png " ")
 
 ### **Step 6:** 
 - You can manually update your sensitive data model while continuing to work in the Data Discovery wizard. In which case, you simply deselect your sensitive column and save your sensitive data model. This part, however, shows you another way to do it from the Library.
@@ -349,7 +349,7 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 - Search for **AGE**.
 <!-- Image-->
 - In the list of sensitive columns, deselect HCM1.EMPLOYEES.AGE.
-![](./images/5.6.1 " ")
+![](./images/5.6.1.png " ")
 - Your sensitive data model is now updated and accurate.
 - Click **Save** then **Exit**.
 
@@ -361,30 +361,30 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 - On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
 ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 <!-- Need to update this as a code snippet-->
-![](./images/6.1.1 " ")
+![](./images/6.1.1.png " ")
 - On the Navigator tab, click the **Refresh** button.
 - AGE is added to the bottom of the list in the EMPLOYEES table.
-![](./images/6.1.2 " ")
+![](./images/6.1.2.png " ")
 
 ### **Step 2:** 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click **Data Discovery**. The Select Target for Data Discovery page is displayed.
-<!-- Image--> ![](./images/6.2.1 " ")
+<!-- Image--> ![](./images/6.2.1.png " ")
 - Select your target database, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
-<!-- Image--> ![](./images/6.2.2 " ")
+<!-- Image--> ![](./images/6.2.2.png " ")
 - For **Sensitive Data Model**, click **Pick from Library**.
-<!-- Image--> ![](./images/6.2.3 " ")
+<!-- Image--> ![](./images/6.2.3.png " ")
 - Click **Continue**. The **Select Sensitive Data Model** page is displayed.
 - Select your sensitive data model (**SDM1**).
-<!-- Image--> ![](./images/6.2.4 " ")
+<!-- Image--> ![](./images/6.2.4.png " ")
 - Leave **Update the SDM with the target** selected.
-![](./images/6.2.5 " ")
+![](./images/6.2.5.png " ")
 - Click **Continue**. The wizard launches a data discovery job.
 - When the job is finished, notice that the **Detail** column reads **Data discovery job finished successfully**.
-![](./images/6.2.6 " ")
+![](./images/6.2.6.png " ")
 - Click **Continue**. The **Sensitive Data Model: SDM1 page** is displayed.
 - Notice that you have the newly discovered sensitive column, AGE. **Only newly discovered columns are displayed at the moment.**
-![](./images/6.2.7 " ")
+![](./images/6.2.7.png " ")
 - **Expand all** of the nodes. **think this area never worked**
 - To view all of the sensitive columns in the sensitive data model, click **View all sensitive columns**.
 - You can toggle the view back and forth between displaying all of the sensitive columns or just the newly discovered ones.
@@ -395,22 +395,22 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 ### **Step 1:** 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Types**. On this page you can view` predefined sensitive types and manage your own sensitive types.
-<!-- Image--> ![](./images/7.1.1 " ")
+<!-- Image--> ![](./images/7.1.1.png " ")
 - Scroll through the list and become familiar with the different sensitive types available. The list contains predefined sensitive types only.
-<!-- Image--> ![](./images/7.1.2 " ")
+<!-- Image--> ![](./images/7.1.2.png " ")
 - Move the **Hide Oracle Predefined** slider to the right. The list removes the Oracle defined sensitive types, showing only the ones that you have defined.
-<!-- Image--> ![](./images/7.1.3 " ")
+<!-- Image--> ![](./images/7.1.3.png " ")
 - Move the slider back to the left.
 - To find out how many sensitive types exist in the Library, scroll to the bottom of the page. The list contains 128 items.
 - To sort the list by sensitive category, position your cursor over the **Sensitive Type Category** header, and then click the arrow.
-<!-- Image--> ![](./images/7.1.4 " ")
+<!-- Image--> ![](./images/7.1.4.png " ")
 - To sort the list by sensitive types, position your cursor over the **Sensitive Type Name** header, and then click the arrow.
 - To view the definition for a sensitive type, click directly on any one of the sensitive types. The **Sensitive Type Details** dialog box is displayed.
-<!-- Image--> ![](./images/7.1.5 " ")
+<!-- Image--> ![](./images/7.1.5.png " ")
 - **think might not need** Here you can view the sensitive type's short name, description, column name pattern (regular expression), column comment pattern (regular expression), column data pattern (regular expression), the search pattern semantic (And or Or), the default masking format associated with the sensitive type, and the sensitive category and resource group to which the sensitive type belongs.
 - Click **Close** to close the dialog box.
 - To check if there is a sensitive type that discovers department IDs, in the search field, enter **Department**. The search finds **Department Name**, but nothing for department IDs.
-<!-- Image--> ![](./images/7.1.6 " ")
+<!-- Image--> ![](./images/7.1.6.png " ")
 - Clear the search field, and then press **Enter** to restore the list.
 - Keep this page open because you return to it later in the lab.
 
@@ -419,14 +419,14 @@ ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
 - Run the following script:
 SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 - Notice that the department ID values are 10, 20, 30, up to 270.
-<!-- Image--> ![](./images/7.2.1 " ")
+<!-- Image--> ![](./images/7.2.1.png " ")
 
 
 ### **Step 3:** 
 - Return to the **Sensitive Types** page in the Oracle Data Safe Console.
 - Click **Add**.
 - The **Create Sensitive Type** dialog box is displayed.
-<!-- Image--> ![](./images/7.3.1 " ")
+<!-- Image--> ![](./images/7.3.1.png " ")
 - From the **Create Like** drop-down list, select **Employee ID Number**. 
     - It will autofill to something else, so adjust accordingly.
 - In the **Sensitive Type Name** field, enter **Custom Department ID Number**.
@@ -446,7 +446,7 @@ SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 - Select your resource group.
 - Click **Save**.
 - Your sensitive type is included in the list and is available in the Data Discovery wizard.
-<!-- Image--> ![](./images/"7.3.2")
+<!-- Image--> ![](./images/7.3.2.png"")
 - Move the **Hide Oracle Predefined** slider to the right to view your custom sensitive type in the list.
 **All Done!**
 
