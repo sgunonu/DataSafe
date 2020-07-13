@@ -47,7 +47,8 @@ or
 EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
 - These are the roles you can add now to your SQL Developer worksheet.
 <!--Image 1.1-->
-![](./images/SQLexecute.png " ")
+![](./images/SQLexecute.png "")
+<!--<img src= "./images/SQLexecute.png" align="left" height="48"width="48">-->
 
  - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 
