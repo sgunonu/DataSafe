@@ -446,7 +446,7 @@ SELECT * FROM HCM1.DEPARTMENTS; <!-- Need to update this to code snippet md-->
 - Select your resource group.
 - Click **Save**.
 - Your sensitive type is included in the list and is available in the Data Discovery wizard.
-<!-- Image--> ![](./images/7.3.2 " ")
+<!-- Image--> ![](./images/"7.3.2")
 - Move the **Hide Oracle Predefined** slider to the right to view your custom sensitive type in the list.
 **All Done!**
 
