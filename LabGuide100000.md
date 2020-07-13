@@ -31,28 +31,29 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 
 ## Part 1. Registering a Target Database
 
-### **Step  1:
-** **NOTE**
-- By default, your Autonomous Database comes with a database account specifically created for Oracle Data Safe named DS$ADMIN. - The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. By default, the DS$ASSESSMENT_ROLE and DS$AUDIT_COLLECTION_ROLE roles are already granted. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
+### Step  1:
 
-- The following table describes the available roles for Autonomous Databases.
-Use the table here https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C
+- The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
 
 
-- You can grant or revoke roles as often as needed.
-- Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
-- Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
-EXECUTE DS_TARGET_UTIL.GRANT_ROLE('role_name');
-or
-EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
+- The following table describes the available roles for Autonomous Databases [here](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C).
+
+![](./images/1.01.png "")
+
+**NOTE**:You can grant or revoke roles as often as needed.
+1. Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
+2. Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
+	`EXECUTE DS_TARGET_UTIL.GRANT_ROLE('role_name');`
+	or
+	`EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');`
+	 - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 - These are the roles you can add now to your SQL Developer worksheet.
 <!--Image 1.1-->
 ![](./images/SQLexecute.png "")
 <!--<img src= "./images/SQLexecute.png" align="left" height="48"width="48">-->
 
- - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 
-### **Step 2:** 
+### Step 2:
 - You can register an Autonomous Database from its Console in Oracle Cloud Infrastructure Console. From this Console, you can also access the Oracle Data Safe Console.
 
 1. Sign in to Oracle Cloud Infrastructure.<!-- Add login console images if skipping lab 0-->
@@ -73,109 +74,86 @@ EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');
 ## Part 2. Assess Database Configurations with Oracle Data Safe
 -	Using Oracle Data Safe you can assess the security of a database by using the Security Assessment feature and fix issues.
 
-### **Step 1:** 
--	In the Oracle Data Safe Console, generate a Comprehensive Assessment report
--	Navigate to the Oracle Data Safe Console
--	Click the **Home** tab and then **Security Assessment**.
+### Step 1: 
+1. 	In the Oracle Data Safe Console (refer to Part 1 step 2 on how to log in), generate a Comprehensive Assessment report
+2.	Navigate to the Oracle Data Safe Console
+3.	Click the **Home** tab and then **Security Assessment**.
 <!-- Image 1-->
 ![](./images/2.1.1.png " ")
--	On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
+4.	On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
 <!-- Image 2-->
 ![](./images/2.1.2.png " ")
-- 	Wait a moment for the report to generate.
--	When the report is generated, review the high risk, medium risk, and low risk values.
--	In the **Last Generated Report** column, click **View Report**.
+5.	Wait a moment for the report to generate.
+6.	When the report is generated, review the high risk, medium risk, and low risk values.
+7.	In the **Last Generated Report** column, click **View Report**.
 <!-- Image 3-->
 ![](./images/2.1.3.png " ")
--	The **Comprehensive Assessment** report is displayed on the **Reports** tab.
--	In the upper right corner, view the target name, when the database was assessed, and the database version.
+8.	The **Comprehensive Assessment** report is displayed on the **Reports** tab.
+9.	In the upper right corner, view the target name, when the database was assessed, and the database version.
 <!-- Image 4-->
 ![](./images/2.1.4.png " ")
-	At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings. These values give you an idea of how secure your database is.
+10. 	At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings. These values give you an idea of how secure your database is.
 <!-- Image 5-->
 ![](./images/2.1.5.png " ")
 ![](./images/2.1.6.png " ")
 ![](./images/2.1.7.png " ")
 ![](./images/2.1.8.png " ")
--	View the values for security controls, user security, and security configurations. These totals show you the number of findings for each high-level category.
--	Browse the report by scrolling down and expanding and collapsing categories. Each category lists related findings about your database and how you can make changes to improve its security.
--	View the **Summary** table. This table compares the number of findings for each category and counts the number of findings per risk level. It helps you to identify the areas that need attention on your database.
+11.	View the values for security controls, user security, and security configurations. These totals show you the number of findings for each high-level category.
+12.	Browse the report by scrolling down and expanding and collapsing categories. Each category lists related findings about your database and how you can make changes to improve its security.
+13.	View the **Summary** table. This table compares the number of findings for each category and counts the number of findings per risk level. It helps you to identify the areas that need attention on your database.
 <!-- Image 6-->
 ![](./images/2.1.9.png " ")
 
 
-### **Step 2:** 
--	At the top of the report, click **Evaluate** to filter the report to show only the Evaluate findings.
+### Step 2: 
+1.	At the top of the report, click **Evaluate** to filter the report to show only the Evaluate findings.
 <!-- Image 7--> 
 ![](./images/2.2.1.png " ")
--	Focus on **System Privilege Grants** under Privileges and Roles:
--	System privileges (**ALTER USER, CREATE USER, DROP USER**) can be used to create and modify other user accounts, including the ability to change passwords. This ability can be abused to gain access to another user's account, which may have greater privileges. **The Privilege Analysis feature may be helpful to determine whether or not a user or role has used account management privileges.**
+2.	Focus on **System Privilege Grants** under Privileges and Roles:
+3.	System privileges (**ALTER USER, CREATE USER, DROP USER**) can be used to create and modify other user accounts, including the ability to change passwords. 		This ability can be abused to gain access to another user's account, which may have greater privileges. **The Privilege Analysis feature may be helpful 	to determine whether or not a user or role has used account management privileges.**
 <!-- Image 8-->
 ![](./images/2.2.2.png " ")
 
-### **Step 3:** 
-- At the top of the report, click **Pass** to filter the report. Scroll through the report to review the findings. For example, the following findings have a Pass status.
-<!-- Image -->
-![](./images/2.3.1.png " ")
--	Under that, you will see User Accounts in SYSTEM or SYSAUX Tablespace Case-Sensitive Passwords.
-- You can expand more to find the rest of your reports.
--	Click on the **Back to Security Assessment** page, select the check box for your target database, and then click **Assess**.
--	In the **Last Generated Report** column, click the View Report link. The Comprehensive Assessment report is displayed.
--	View the totals for the risk levels. If you fixed any of the previous risks, then the totals will be lower than in the first assessment.
--	Check the **Account Management Privileges** entry in the Evaluate category. 
--	To compare the results with the first assessment, do the following:
--	Click the **Reports** tab.
--	Click **Security Assessment**.
--	Click **Comprehensive Assessments**.
--	Click the previous assessment report to open it.
--	**Note:** Currently, there's no compare functionality in the product so to compare assessment results, you need to view both reports and manually compare.~~
-<!--i think this whole step should be removed-->
 
 ## Part 3. Assess Users with Oracle Data Safe
 -	**About:** Using Oracle Data Safe, assess user security in your target database by using the User Assessment feature and fix issues.
 
-### **Step 1:** 
--	In the Oracle Data Safe Console, click the **Home** tab, and then click **User Assessment**. The User Assessment page is displayed.
+### Step 1:
+1.	In the Oracle Data Safe Console, click the **Home** tab, and then click **User Assessment**. The User Assessment page is displayed.
 <!-- Image 3.1-->
 ![](./images/3.1.1.png " ")
-- Select the check box for your target database, and click Assess. When finished, click **view report.**
+2.	Select the check box for your target database, and click Assess. When finished, click **view report.**
 <!-- Image 3.2-->
 ![](./images/3.1.2.png " ")
--	When the report is generated, view the totals in the Critical Risk, High Risk, Medium Risk, and Low Risk columns.
+3.	When the report is generated, view the totals in the Critical Risk, High Risk, Medium Risk, and Low Risk columns.
 <!-- Image 3.3-->
 ![](./images/3.1.3.png " ")
-<!-- why is this needed, i dont think-->
-
-
-### **Step 2:** <!--dont think this step is needed-->
--	View the **User Risk** chart. This chart compares the number of critical, high, medium, and low risk users. **i think this is a repeat from the last column**
--	View the **User Roles** chart. This chart compares the number of users with the DBA, DV Admin, and Audit Admin roles.
+4.	View the **User Roles** chart. This chart compares the number of users with the DBA, DV Admin, and Audit Admin roles.
 <!-- Image 3.4-->
 ![](./images/3.2.1.png " ")
--	Click the second small circle below the charts to view the **Last Password Change** and **Last Login** charts.
+5.	Click the second small circle below the charts to view the **Last Password Change** and **Last Login** charts.
 <!-- Image 3.5-->
 ![](./images/3.2.2.png " ")
 
 
-### **Step 3:** 
--	Click the + sign to view the list of columns that you can display in the table. Add and remove columns as you wish, then click Apply.
+### Step 2:
+1.	Click the + sign to view the list of columns that you can display in the table. Add and remove columns as you wish, then click Apply.
 <!-- Image 3.6-->
 ![](./images/3.3.1.png " ")
 ![](./images/3.3.2.png " ")
--	In the **Audit Records** column, click **View Activity** for the following users to view the audit records that they generated. Filters are automatically applied to **Operation Time** and **User Name**. SECURE_STEVE: Notice that SECURE_STEVE has not generated any audit records. This use may be a rogue user. Click Back to **User Assessment** report to return to the **User Assessment** report.
+2.	In the **Audit Records** column, click **View Activity** for the following users to view the audit records that they generated. Filters are automatically applied to **Operation Time** and **User Name**. Click Back to **User Assessment** report to return to the **User Assessment** report.
 <!-- Image 3.7-->
 ![](./images/3.3.3.png " ")
 ![](./images/3.3.4.png " ")
--	DBA_DEBRA: Notice that DBA_DEBRA has several login failures. Some other user may be trying to log in with this account.
--	DBA_DEBRA: Notice that DBA_DEBRA has the Audit Admin role, but has not generated any audit records.
--	View more detail about DBA_DEBRA:
--	In the table, click DBA_DEBRA. The **User Details** dialog box is displayed.
+
+-	**NOTE:** DBA_DEBRA: Notice that DBA_DEBRA has the Audit Admin role, but has not generated any audit records.
+3.	In the table, click DBA_DEBRA. The **User Details** dialog box is displayed. Here you see she is not using her audit admin role, it may be recommended to reconsider her admin role.
 <!--Image-->
 ![](./images/3.3.5.png " ")
--	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
--	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.
+4.	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
+5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.
 -	Close the User Details dialog box.
-
+<!---START HERE think-->
 ### **Step 4:** 
 <!-- Figure out if SQL developer parts should be kept -->
 -	In SQL Developer, run the following code to drop SECURE_STEVE: **should these parts be kept? I dont think**
