@@ -75,24 +75,24 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -	Using Oracle Data Safe you can assess the security of a database by using the Security Assessment feature and fix issues.
 
 ### Step 1: 
-1. 	In the Oracle Data Safe Console (refer to Part 1 step 2 on how to log in), generate a Comprehensive Assessment report
-2.	Navigate to the Oracle Data Safe Console
-3.	Click the **Home** tab and then **Security Assessment**.
+1. In the Oracle Data Safe Console (refer to Part 1 step 2 on how to log in), generate a Comprehensive Assessment report
+2. Navigate to the Oracle Data Safe Console
+3. Click the **Home** tab and then **Security Assessment**.
 <!-- Image 1-->
-![](./images/2.1.1.png " ")
-4.	On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
+![](./images/2.1.1.png " ")<br/>
+4. On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
 <!-- Image 2-->
 ![](./images/2.1.2.png " ")
-5.	Wait a moment for the report to generate.
-6.	When the report is generated, review the high risk, medium risk, and low risk values.
-7.	In the **Last Generated Report** column, click **View Report**.
+5. Wait a moment for the report to generate.
+6. When the report is generated, review the high risk, medium risk, and low risk values.
+7. In the **Last Generated Report** column, click **View Report**.
 <!-- Image 3-->
 ![](./images/2.1.3.png " ")
-8.	The **Comprehensive Assessment** report is displayed on the **Reports** tab.
-9.	In the upper right corner, view the target name, when the database was assessed, and the database version.
+8. The **Comprehensive Assessment** report is displayed on the **Reports** tab.
+9. In the upper right corner, view the target name, when the database was assessed, and the database version.
 <!-- Image 4-->
 ![](./images/2.1.4.png " ")
-10. 	At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings. These values give you an idea of how secure your database is.
+10. At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings. These values give you an idea of how secure your database is.
 <!-- Image 5-->
 ![](./images/2.1.5.png " ")
 ![](./images/2.1.6.png " ")
