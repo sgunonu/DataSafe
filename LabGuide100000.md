@@ -39,7 +39,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 - The following table describes the available roles for Autonomous Databases [here](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C).
 
 ![](./images/1.01.png "")
-
+**think insert script here, and enable data safe tenancy**
 **NOTE**:You can grant or revoke roles as often as needed.
 1. Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
 2. Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
@@ -82,27 +82,27 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ![](./images/2.1.1.png " ")<br/>
 4. On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
 <!-- Image 2-->
-![](./images/2.1.2.png " ")
+![](./images/2.1.2.png " ")<br/>
 5. Wait a moment for the report to generate.
 6. When the report is generated, review the high risk, medium risk, and low risk values.
 7. In the **Last Generated Report** column, click **View Report**.
 <!-- Image 3-->
-![](./images/2.1.3.png " ")
+![](./images/2.1.3.png " ")<br/>
 8. The **Comprehensive Assessment** report is displayed on the **Reports** tab.
 9. In the upper right corner, view the target name, when the database was assessed, and the database version.
 <!-- Image 4-->
-![](./images/2.1.4.png " ")
+![](./images/2.1.4.png " ")<br/>
 10. At the top of the report, click either **Medium Risk, Low Risk, High Risk, or Advisory** to filter the report to show only their individual findings. These values give you an idea of how secure your database is.
 <!-- Image 5-->
-![](./images/2.1.5.png " ")
-![](./images/2.1.6.png " ")
-![](./images/2.1.7.png " ")
-![](./images/2.1.8.png " ")
+![](./images/2.1.5.png " ")<br/>
+![](./images/2.1.6.png " ")<br/>
+![](./images/2.1.7.png " ")<br/>
+![](./images/2.1.8.png " ")<br/>
 11.	View the values for security controls, user security, and security configurations. These totals show you the number of findings for each high-level category.
 12.	Browse the report by scrolling down and expanding and collapsing categories. Each category lists related findings about your database and how you can make changes to improve its security.
 13.	View the **Summary** table. This table compares the number of findings for each category and counts the number of findings per risk level. It helps you to identify the areas that need attention on your database.
 <!-- Image 6-->
-![](./images/2.1.9.png " ")
+![](./images/2.1.9.png " ")<br/>
 
 
 ### Step 2: 
@@ -124,169 +124,135 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ![](./images/3.1.1.png " ")
 2.	Select the check box for your target database, and click Assess. When finished, click **view report.**
 <!-- Image 3.2-->
-![](./images/3.1.2.png " ")
+![](./images/3.1.2.png " ")<br/>
 3.	When the report is generated, view the totals in the Critical Risk, High Risk, Medium Risk, and Low Risk columns.
 <!-- Image 3.3-->
-![](./images/3.1.3.png " ")
+![](./images/3.1.3.png " ")<br/>
 4.	View the **User Roles** chart. This chart compares the number of users with the DBA, DV Admin, and Audit Admin roles.
 <!-- Image 3.4-->
-![](./images/3.2.1.png " ")
+![](./images/3.2.1.png " ")<br/>
 5.	Click the second small circle below the charts to view the **Last Password Change** and **Last Login** charts.
 <!-- Image 3.5-->
-![](./images/3.2.2.png " ")
+![](./images/3.2.2.png " ")<br/>
 
 
 ### Step 2:
 1.	Click the + sign to view the list of columns that you can display in the table. Add and remove columns as you wish, then click Apply.
 <!-- Image 3.6-->
-![](./images/3.3.1.png " ")
-![](./images/3.3.2.png " ")
+![](./images/3.3.1.png " ")<br/>
+![](./images/3.3.2.png " ")<br/>
 2.	In the **Audit Records** column, click **View Activity** for the following users to view the audit records that they generated. Filters are automatically applied to **Operation Time** and **User Name**. Click Back to **User Assessment** report to return to the **User Assessment** report.
 <!-- Image 3.7-->
-![](./images/3.3.3.png " ")
-![](./images/3.3.4.png " ")
+![](./images/3.3.3.png " ")<br/>
+![](./images/3.3.4.png " ")<br/>
 
 -	**NOTE:** DBA_DEBRA: Notice that DBA_DEBRA has the Audit Admin role, but has not generated any audit records.
 3.	In the table, click DBA_DEBRA. The **User Details** dialog box is displayed. Here you see she is not using her audit admin role, it may be recommended to reconsider her admin role.
 <!--Image-->
-![](./images/3.3.5.png " ")
+![](./images/3.3.5.png " ")<br/>
 4.	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
 5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.
--	Close the User Details dialog box.
-<!---START HERE think-->
-### **Step 4:** 
+6.	Close the User Details dialog box.
+
+### Step 4:
 <!-- Figure out if SQL developer parts should be kept -->
--	In SQL Developer, run the following code to drop SECURE_STEVE: **should these parts be kept? I dont think**
-<!-- Image 3.9-->
--	Run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA:
+1.	Run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA:
+**think add sql script**
 <!-- Image 3.10-->
+2.	Return to Oracle Data Safe.
+3.	Click the **Home** tab, and then click **User Assessment**.
+4.	Select the check box for your target database, and then click **Assess**.
+5.	Click **View Report**.
+6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role. **think MAJOR SAD FACE THINK ** **WUT*WHAT**
 
-
-### **Step 5:** 
--	Return to Oracle Data Safe.
--	Click the **Home** tab, and then click **User Assessment**.
--	Select the check box for your target database, and then click **Assess**.
--	Click **View Report**.
--	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role. **think MAJOR SAD FACE THINK ** **WUT*WHAT**
 
 ## Part 4. Discover Sensitive Data with Oracle Data Safe
-### **Step 1:** 
--	Navigate to the Oracle Data Safe Service Console
--	To access the **Data Discovery** wizard, click the **Home** tab, and then click **Data Discovery**.
-<!-- Image 4.1-->
-![](./images/4.1.1.png " ")
--	On the Select Target for Sensitive Data Discovery page, your target database is listed.
--	 **think insert the WHY** Often, you want to perform data discovery against a production database where you can get an accurate and up-to-date picture of your sensitive data. You can discover sensitive data in the source database (a production or copy) and mask the cloned copies of this source database. Or, you can simply run a data discovery job on the actual database that you want to mask.
--	Select your target database, and then click **Continue at the bottom right**.
-<!-- Image 4.2-->
-![](./images/4.1.2.png " ")
--	On this page, you can create a new **sensitive data model**, select an existing one from the Library, or import a file-based sensitive data model.
-<!-- Image 4.3-->
-![](./images/4.1.3.png " ")
-    1. Leave **Create** selected.
-    2. Name the sensitive data model as **SDM1**.
-    3. Enable **Show and save sample data** so that Data Discovery retrieves sample data for each sensitive column, if it's available.
-    4. Select your resource group. 
-    5. Click **Continue**.
--	On the **Select Schemas for Sensitive Data Discovery** page, select the schema that you want Data Discovery to search. In this case, select the **HCM1** schema, and click **Continue**.
-<!-- Image 4.4-->
-![](./images/4.1.4.png " ")
--	On the **Select Sensitive Types for Sensitive Data Discovery** page, you select the sensitive types that you want to discover. Data Discovery categorizes its sensitive types as Identification Information, Biographic Information, IT Information, Financial Information, Healthcare Information, Employment Information, and Academic Information. Do the following:
--	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types.Scroll and review the sensitive types available.
-<!-- Image 4.5-->
-![](./images/4.2.3.png " ")
--	Return to the top of the list and select the **Select All** check box.
--	At the bottom of the page, select the **Non-Dictionary Relationship Discovery** check box.
--	**think @why** Oracle Data Safe automatically discovers referential relationships defined in the data dictionary. The **Non-Dictionary Relationship Discovery** feature helps to identify application-level parent-child relationships that are not defined in the data dictionary. It helps discover application-level relationships so that data integrity is maintained during data masking.
--	When you are ready to start the data discovery job, click **Continue**.
--	Wait for the job to finish.
-<!-- Image 4.6-->
--	If the job is successful, the **Detail** column states Data discovery job finished successfully, and you can click **Continue**. Otherwise, you need to click **Back** or **Exit** and investigate the issue.
 
-### **Step 2:** 
+### Step 1: 
+1.	Navigate to the Oracle Data Safe Service Console
+2.	To access the **Data Discovery** wizard, click the **Home** tab, and then click **Data Discovery**.
+<!-- Image 4.1-->
+![](./images/4.1.1.png " ")<br/>
+
+3.	On the Select Target for Sensitive Data Discovery page, your target database is listed.
+	 **NOTE** Often, you want to perform data discovery against a production database where you can get an accurate and up-to-date picture of your sensitive data. You can discover sensitive data in the source database (a production or copy) and mask the cloned copies of this source database. Or, you can simply run a data discovery job on the actual database that you want to mask.
+4.	Select your target database, and then click **Continue at the bottom right**.
+<!-- Image 4.2-->
+![](./images/4.1.2.png " ")<br/>
+5.	On this page, you can create a new **sensitive data model**, select an existing one from the Library, or import a file-based sensitive data model.
+<!-- Image 4.3-->
+![](./images/4.1.3.png " ")<br/>
+   	 1. Leave **Create** selected.
+   	 2. Name the sensitive data model as **SDM1**.
+   	 3. Enable **Show and save sample data** so that Data Discovery retrieves sample data for each sensitive column, if it's available.
+    	 4. Select your resource group. 
+    	 5. Click **Continue**.
+6.	On the **Select Schemas for Sensitive Data Discovery** page, select the schema that you want Data Discovery to search. In this case, select the **HCM1** schema, and click **Continue**.
+<!-- Image 4.4-->
+![](./images/4.1.4.png " ")<br/>
+7.	On the **Select Sensitive Types for Sensitive Data Discovery** page, select the **Select All** check box. 
+**NOTE** Data Discovery categorizes its sensitive types as Identification Information, Biographic Information, IT Information, Financial Information, Healthcare Information, Employment Information, and Academic Information. Do the following:
+8.	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types.Scroll and review the sensitive types available.
+<!-- Image 4.5-->
+![](./images/4.1.5.png " ")<br/>
+**THINK IMAGE replace**
+9.	At the bottom of the page, select the **Non-Dictionary Relationship Discovery** check box.
+	**NOTE** Oracle Data Safe automatically discovers referential relationships defined in the data dictionary. The **Non-Dictionary Relationship Discovery** feature helps to identify application-level parent-child relationships that are not defined in the data dictionary. It helps discover application-level relationships so that data integrity is maintained during data masking.
+10.	When you are ready to start the data discovery job, click **Continue**.
+<!-- Image 4.6-->
+11.	The job will take a few minutes to complete. If the job is successful, the **Detail** column states Data discovery job finished successfully, and you can click **Continue**. Otherwise, you need to click **Back** or **Exit** and investigate the issue.
+
+### Step 2:
 -	On the **Non-Dictionary Referential Relationships** page, you are presented with a list of potential non-dictionary (application level) referential relationships that Data Discovery found by using column name patterns and column data patterns. Do the following:
--	To view all of the columns, move the **Expand All** slider to the right. Data Discovery found some potentially sensitive columns (non-dictionary referential relationships) in the **PU_PETE schema**.
+1.	To view all of the columns, move the **Expand All** slider to the right. Data Discovery found some potentially sensitive columns (non-dictionary referential relationships) in the **PU_PETE schema**.
 <!-- Image 4.7-->
-![](./images/4.2.1.png " ")
--	Click **Save** and **Continue**.
--	The **Sensitive Data Discovery Result** page is displayed. On this page, you can view and manage the sensitive columns in your sensitive data model. Your sensitive data model is **saved to the Library.**
+![](./images/4.2.1.png " ")<br/>
+2.	Click **Save and Continue**.
+3.	The **Sensitive Data Discovery Result** page is displayed. On this page, you can view and manage the sensitive columns in your sensitive data model. Your sensitive data model is **saved to the Library.**
 <!-- Image 4.8-->
-![](./images/4.2.2.png " ")
--	Notice that Data Discovery found sensitive columns in all three sensitive categories that you selected. To view the sensitive columns, move the **Expand All** slider to the right. The list includes the following:
+![](./images/4.2.2.png " ")<br/>
+4.	Notice that Data Discovery found sensitive columns in all three sensitive categories that you selected. To view the sensitive columns, move the **Expand All** slider to the right. The list includes the following:
     -	Sensitive columns discovered based on the sensitive types that you selected
     -	Dictionary-based referential relationships
     -	Non-dictionary referential relationships
--	Take a look at how the sensitive columns are organized. Initially, they are grouped by sensitive categories and sensitive types.
--	To list the sensitive columns by schema and table, select **Schema View** from the drop-down list next to the **Expand All Slider**. **Schema View** is useful for quickly finding a sensitive *column* in a table and for viewing the list of sensitive columns in a table. For example, in the EMPLOYEES table there are several sensitive columns listed.
+5.	Take a look at how the sensitive columns are organized. Initially, they are grouped by sensitive categories and sensitive types. To list the sensitive columns by schema and table, select **Schema View** from the drop-down list next to the **Expand All Slider**. **Schema View** is useful for quickly finding a sensitive *column* in a table and for viewing the list of sensitive columns in a table. For example, in the EMPLOYEES table there are several sensitive columns listed.
 <!--Image-->
-![](./images/4.2.3.png " ")
--	If needed, you can add and remove sensitive columns from your sensitive data model by deselecting or selecting the box. You can use the **Add** button to add more sensitive columns.
--	Notice that some of the sensitive columns do not have a check box. These are dependent columns. They have a relationship with their parent column. For example, in the EMPLOYEES table, JOB_ID is listed. It has a relationship defined in the Oracle data dictionary to the JOBS.JOB_ID sensitive column. If you remove a sensitive column that has a referential relationship, both the sensitive column and referential relationship are removed from the sensitive data model. Therefore, if you deselect JOBS.JOB_ID, then EMPLOYEES.JOB_ID is removed too.
--	View the sample data for the HCM1.SUPPLEMENTAL_DATA.LAST_INS_CLAIM column (expand HCM1 at the top, then expand supplemental data, then expand last_ins_claim).
--	The sensitive type is **Healthcare Provider** and the discovered sensitive column is LAST_INS_CLAIM, which has values such as Cavity and Hair Loss. Your value may be different. This column isn't a Healthcare Provider type of column and thus it is a false positive. You can deselect this column. Being able to remove a sensitive column is important when your sensitive data model includes false positives. To be able to recognize false positives, it helps to know your data well.
+![](./images/4.2.3.png " ")<br/>
+**NOTE**	If needed, you can add and remove sensitive columns from your sensitive data model by deselecting or selecting the box. You can use the **Add** button to add more sensitive columns.
+**NOTE**	Notice that some of the sensitive columns do not have a check box. These are dependent columns. They have a relationship with their parent column. For example, in the EMPLOYEES table, JOB_ID is listed. It has a relationship defined in the Oracle data dictionary to the JOBS.JOB_ID sensitive column. If you remove a sensitive column that has a referential relationship, both the sensitive column and referential relationship are removed from the sensitive data model. Therefore, if you deselect JOBS.JOB_ID, then EMPLOYEES.JOB_ID is removed too.
+6.	View the sample data for the HCM1.SUPPLEMENTAL_DATA.LAST_INS_CLAIM column (expand HCM1 at the top, then expand supplemental data, then expand last_ins_claim).	The sensitive type is **Healthcare Provider** and the discovered sensitive column is LAST_INS_CLAIM, which has values such as Cavity and Hair Loss. Your value may be different. This column isn't a Healthcare Provider type of column and thus it is a false positive. You can deselect this column. Being able to remove a sensitive column is important when your sensitive data model includes false positives. To be able to recognize false positives, it helps to know your data well.
 <!--**think if images should go here**-->
-![](./images/4.2.4.png " ")
--	**Tip:** To quickly locate a sensitive column, enter the name or part of the name in the search box.
+![](./images/4.2.4.png " ")<br/>
 
-### **Step 3:** 
+
+### Step 3:
 -	Suppose that you're missing some sensitive columns in your sensitive data model. While working in the Data Discovery wizard, you can backtrack to reconfigure and rerun the data discovery job. You can repeat the process as many times as you need until you feel that your sensitive data model is accurate. Try the following:
 
--	Click **Back** 
--	Now you are on the **Select Sensitive Types for Sensitive Data Discovery** page. Here you can change your sensitive type selections and choose whether to include non-dictionary referential relationships in the search.
--	Select all of the sensitive categories.
--	Deselect **Non-Dictionary Relationship Discovery** at the bottom of the page.
+1.	Click **Back** 
+2.	Now you are on the **Select Sensitive Types for Sensitive Data Discovery** page. Here you can change your sensitive type selections and choose whether to include non-dictionary referential relationships in the search.
+3.	Select all of the sensitive categories.
+4.	Deselect **Non-Dictionary Relationship Discovery** at the bottom of the page.
 <!-- Image 4.10-->
-![](./images/4.3.1.png " ")
--	To rerun the data discovery job, click **Continue**.
--	When the job is finished, click **Continue**. Because you chose to not discover non-dictionary referential relationships, the wizard takes you directly to the **Sensitive Data Discovery Result** page.
--	Expand all of the sensitive columns and review the results then scroll down and click reports.
+![](./images/4.3.1.png " ")<br/>
+5.	To rerun the data discovery job, click **Continue**.
+6.	When the job is finished, click **Continue**. Because you chose to not discover non-dictionary referential relationships, the wizard takes you directly to the **Sensitive Data Discovery Result** page.
+7.	Expand all of the sensitive columns and review the results then scroll down and click reports.
 <!-- Image 4.11-->
-![](./images/4.3.2.png " ")
+![](./images/4.3.2.png " ")<br/>
 
-
-### **Step 4:** 
--	Scroll down and click Report at the bottom right corner of the screen.
-The report shows you a chart that compares sensitive categories. You can also view totals of sensitive values, sensitive types, sensitive tables, and sensitive columns. The table at the bottom of the report displays individual sensitive column names, sample data for the sensitive columns, column counts based on sensitive categories, and estimated data counts.
+**NOTE** The report shows you a chart that compares sensitive categories. You can also view totals of sensitive values, sensitive types, sensitive tables, and sensitive columns. The table at the bottom of the report displays individual sensitive column names, sample data for the sensitive columns, column counts based on sensitive categories, and estimated data counts.
 <!-- Image 4.12-->
-![](./images/4.4.1.png " ")
--	Analyze the data:
--	To drill-down into a sensitive category in the chart, position your mouse over the chart, and then click the **Expand** button.
-<!-- Image 4.13-->
-![](./images/4.4.2.png " ")
--	To drill-up, position your mouse over an expanded sensitive category, and then click the **Collapse** button.
--	To enlarge the chart, click the **Expand** button (double-arrows) in the bottom right corner. View the chart and click **Close**.
--	Expand the list of sensitive columns and review the information.
-<!-- Image 4.14-->
-![](./images/4.4.3.png " ")
--	Click **Exit**.
-<!-- Image 4.15-->
--	To access the report from the Reports tab, do the following:
--	Click the **Reports** tab.
-<!-- Image 4.16-->
-![](./images/4.4.4.png " ")
--	Click **Data Discovery**.
--	Click your sensitive data model to open the report.
+![](./images/4.4.1.png " ")<br/>
 
 
-### **Step 5:** 
--	Click the **Library**  tab and click **Data Discovery.**
--	The Sensitive Data Models page is displayed, listing the sensitive data models to which you have access. For each sensitive data model, you can view information about when your sensitive data model was created, when it was last updated, and who owns it.-	If you need to remove your sensitive data model from the Library, you can select the check box for it, and click **Delete**.
+### Step 4: 
+
+1.	Click the **Library**  tab and click **Data Discovery.** and go to **Sensitive Data Models**.
+2.	For each sensitive data model, you can view information about when your sensitive data model was created, when it was last updated, and who owns it.-	If you need to remove your sensitive data model from the Library, you can select the check box for it, and click **Delete**. 
 <!-- Image 4.17-->
-![](./images/4.5.1.png " ")
-- Click the name of your sensitive data model to open it.
-
-<!-- Image 4.18-->
-![](./images/4.5.2.png " ")
--	To return to the **Sensitive Data Models** page, click the **Library** tab, and then click **Sensitive Data Models**.
-
-
-### **Step 6:** 
-- Select the check box for your sensitive data model.
-- Click **Download**. It will take some time for it to load. Your sensitive data model is downloaded to your browser.
-<!--Image-->
-![](./images/4.6.1.png " ")
-- Open the file, and review the XML code.
-- Save the file to your desktop as **SDM1.xml**, and then close the file.
+![](./images/4.5.1.png " ")<br/>
+3. 	You can also **Download** the Sensitive Data Model. Open the file, and review the XML code. (Save the file to your desktop as **SDM1.xml**).
+![](./images/4.6.1.png " ")<br/>
 
 
 
@@ -294,16 +260,16 @@ The report shows you a chart that compares sensitive categories. You can also vi
 ## Part 5. Verify Sensitive Data Model with Oracle Data Safe
 - Using Oracle Data Safe, verify a sensitive data model by using the verification option in the Library and by using the Data Discovery wizard.
 
-### **Step 1:** 
+### Step 1: 
 - Open SQL Developer
 - On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
-ALTER TABLE EMPLOYEES 
-ADD AGE NUMBER;  alter table employees <!-- Need to update this as a code snippet-->
+'ALTER TABLE EMPLOYEES 
+ADD AGE NUMBER;  alter table employees' <!-- Need to update this as a code snippet-->
 - Click the **Refresh** button to view the newly added column.
 <!--image--> 
 ![](./images/5.1.1.png " ")
 
-### **Step 2:** 
+### Step 2: 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Data Models**.
 ![](./images/5.2.1.png " ")
@@ -324,7 +290,7 @@ The verification job is started.
 ![](./images/5.2.5.png " ")
 - Click **Continue** **think this part doesnt seem to be effective**
 
-### **Step 3:** 
+### Step 3: 
 - On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
 <!-- Image-->
 ![](./images/5.3.1.png " ")
@@ -343,7 +309,7 @@ The verification job is started.
 - Click **Save and Continue**.
 - Click **Exit**.
 
-### **Step 4:** 
+### Step 4: 
 - Return to SQL Developer.
 - On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
 ALTER TABLE EMPLOYEES
@@ -357,7 +323,7 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 ![](./images/5.4.2.png " ")
 - If the AGE column is still there, click the **Refresh** button to refresh the table. 
 
-### **Step 5:** 
+### Step 5: 
 - Return to Oracle Data Safe.
 - Click the **Home** tab, and then click **Data Discovery**.
 <!-- Image--> 
@@ -380,7 +346,7 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 <!-- Image--> 
 ![](./images/5.5.7.png " ")
 
-### **Step 6:** 
+### Step 6: 
 - You can manually update your sensitive data model while continuing to work in the Data Discovery wizard. In which case, you simply deselect your sensitive column and save your sensitive data model. This part, however, shows you another way to do it from the Library.
 
 - Click **Exit** to exit the Data Discovery wizard.
@@ -396,7 +362,7 @@ SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
 ## Part 6. Update a Sensitive Data Model with Oracle Data Safe
 - Using Oracle Data Safe, perform an incremental update to a sensitive data model by using the Data Discovery wizard.
 
-### **Step 1:** 
+### Step 1: 
 - Open SQL Developer
 - On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
 ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
