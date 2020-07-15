@@ -261,140 +261,133 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 - Using Oracle Data Safe, verify a sensitive data model by using the verification option in the Library and by using the Data Discovery wizard.
 
 ### Step 1: 
-- Open SQL Developer
-- On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
-'ALTER TABLE EMPLOYEES 
-ADD AGE NUMBER;  alter table employees' <!-- Need to update this as a code snippet-->
-- Click the **Refresh** button to view the newly added column.
+1. Open SQL Developer
+2. On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
+	`ALTER TABLE EMPLOYEES` 
+ 	 `ADD AGE NUMBER;` <!-- Need to update this as a code snippet-->
+3. Click the **Refresh** button to view the newly added column.
 <!--image--> 
 ![](./images/5.1.1.png " ")
 
 ### Step 2: 
--	Navigate to the Oracle Data Safe Service Console
-- In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Data Models**.
-![](./images/5.2.1.png " ")
-- Select the check box for your sensitive data model that you created in Discovery Lab 1 - Discover Sensitive Data with Oracle Data Safe (**SDM1**).
-- Click **Verify Against Target**.
+1. Navigate to the Oracle Data Safe Service Console
+2. In the Oracle Data Safe Console, click the **Library** tab, and then click **Sensitive Data Models**.
+![](./images/5.2.1.png " ")<br/>
+3. Select the check box for your sensitive data model that you created in Discovery Lab 1 - Discover Sensitive Data with Oracle Data Safe (**SDM1**).
+4. Click **Verify Against Target**.
 <!-- Image-->
-![](./images/5.2.2.png " ")
-- On the **Select Target for Data Model Verification** page, select your target database, and click **Continue**.
-The verification job is started.
+![](./images/5.2.2.png " ")<br/>
+5. On the **Select Target for Data Model Verification** page, select your target database, and click **Continue**. The verification job is started. Once finished, click **Continue**.
 <!-- Image-->
-![](./images/5.2.3.png " ")
-![](./images/5.2.4.png " ")
-- When the job is finished, notice that the **Detail** column reads Data model verification job finished successfully.
-- Click **Continue**.
-- On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE.
-- The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
+![](./images/5.2.3.png " ")<br/>
+![](./images/5.2.4.png " ")<br/> **think verify against ADWDEMO NOT DATASAFEADW**
+6. On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE. Click **Continue**.
+**NOTE** The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
 <!-- Image-->
-![](./images/5.2.5.png " ")
-- Click **Continue** **think this part doesnt seem to be effective**
+![](./images/5.2.5.png " ")<br/>
 
 ### Step 3: 
-- On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
+1. On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
 <!-- Image-->
-![](./images/5.3.1.png " ")
-![](./images/5.3.2.png " ")
-- Expand the **HCM1**, and then the **EMPLOYEES** table.
-- Select the **AGE** column. 
+![](./images/5.3.1.png " ")<br/>
+![](./images/5.3.2.png " ")<br/>
+2. Expand the **HCM1**, and then the **EMPLOYEES** table, then select the **AGE** column. 
 <!-- Image-->
-![](./images/5.3.3.png " ")
-- At the top of the dialog box in the **Sensitive Type** field, enter **age**. AGE is automatically retrieved as a sensitive type and you can select it.
+![](./images/5.3.3.png " ")<br/>
+3. At the top of the dialog box in the **Sensitive Type** field, enter **age**. AGE is automatically retrieved as a sensitive type and you can select it.
 <!-- Image-->
-![](./images/5.3.4.png " ")
-- Scroll to the bottom and click **Add to Result**. Your sensitive data model is updated to include the AGE column.
-- To verify, enter age in the search box. HCM1.EMPLOYEES.AGE should be listed under **Biographic Information**.
+![](./images/5.3.4.png " ")<br/>
+4. Scroll to the bottom and click **Add to Result**. Your sensitive data model is updated to include the AGE column.
+5. To verify, enter age in the search box. HCM1.EMPLOYEES.AGE should be listed under **Biographic Information**.
 <!-- Image-->
-![](./images/5.3.5.png " ")
-- Click **Save and Continue**.
-- Click **Exit**.
+![](./images/5.3.5.png " ")<br/>
+6. Click **Save and Continue** and then **Exit**.
 
 ### Step 4: 
-- Return to SQL Developer.
-- On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
-ALTER TABLE EMPLOYEES
-DROP COLUMN AGE; <!-- Need to update this as a code snippet-->
+1. Return to SQL Developer.
+2. On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
+	`ALTER TABLE EMPLOYEES
+	 `DROP COLUMN AGE;` <!-- Need to update this as a code snippet-->
+	<!--Image-->
+	![](./images/5.4.1.png " ")<br/>
+3. To verify that the EMPLOYEES table no longer has an AGE column, run the following script:
+	`SELECT AGE FROM HCM1.EMPLOYEES;` <!-- Need to update this as a code snippet-->
+4. Notice that the AGE column is gone and you receive an "Invalid Identifier" message when you run the command.
 <!--Image-->
-![](./images/5.4.1.png " ")
-- To verify that the EMPLOYEES table no longer has an AGE column, run the following script:
-SELECT AGE FROM HCM1.EMPLOYEES; <!-- Need to update this as a code snippet-->
-- Notice that the AGE column is gone and you receive an "Invalid Identifier" message when you run the command.
-<!--Image-->
-![](./images/5.4.2.png " ")
-- If the AGE column is still there, click the **Refresh** button to refresh the table. 
+![](./images/5.4.2.png " ")<br/>
+5. If the AGE column is still there, click the **Refresh** button to refresh the table. 
 
 ### Step 5: 
-- Return to Oracle Data Safe.
-- Click the **Home** tab, and then click **Data Discovery**.
+**think we might drop in case of data masking**
+1. Return to Oracle Data Safe.
+2. Click the **Home** tab, and then click **Data Discovery**.
 <!-- Image--> 
-![](./images/5.5.1.png " ")
-- On the **Select Target for Sensitive Data Discovery** page, select your target database, and then click **Continue**.
+![](./images/5.5.1.png " ")<br/>
+3. On the **Select Target for Sensitive Data Discovery** page, select your target database, and then click **Continue**.
 <!-- Image--> 
-![](./images/5.5.2.png " ")
-- The **Select Sensitive Data Model** page is displayed.
-- For **Sensitive Data Model**, select **Pick from Library**, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
+![](./images/5.5.2.png " ")<br/>
+4. For **Sensitive Data Model**, select **Pick from Library**, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
 <!-- Image--> 
-![](./images/5.5.3.png " ")
-![](./images/5.5.4 " ")
-- Select your sensitive data model, **SDM1**.
-- Scroll down to the bottom of the page and select **Verify if SDM is compatible with the target.**
+![](./images/5.5.3.png " ")<br/>
+![](./images/5.5.4.png " ")<br/>
+5.. Select your sensitive data model, **SDM1**.
+6.. Scroll down to the bottom of the page and select **Verify if SDM is compatible with the target.**
 <!-- Image--> 
-![](./images/5.5.5.png " ")
-- To start the verification job, click Continue.
-- If the job finishes successfully, click **Continue**. The **Data Model Verification Result** page is displayed.
-- Expand **Missing sensitive columns**, and then HCM1. The Data Discovery wizard identifies the AGE column as missing from the database.
+![](./images/5.5.5.png " ")<br/>
+8. To start the verification job, click Continue. If the job finishes successfully, click **Continue**. The **Data Model Verification Result** page is displayed.
+9. Expand **Missing sensitive columns**, and then HCM1. The Data Discovery wizard identifies the AGE column as missing from the database.
 <!-- Image--> 
-![](./images/5.5.7.png " ")
+![](./images/5.5.7.png " ")<br/>
 
 ### Step 6: 
 - You can manually update your sensitive data model while continuing to work in the Data Discovery wizard. In which case, you simply deselect your sensitive column and save your sensitive data model. This part, however, shows you another way to do it from the Library.
 
-- Click **Exit** to exit the Data Discovery wizard.
-- Click the **Library** tab, and then click **Sensitive Data Models**.
-- Click your sensitive data model to open it.
-- Search for **AGE**.
+1. Click **Exit** to exit the Data Discovery wizard.
+2. Click the **Library** tab, and then click **Sensitive Data Models**.
+3. Click your sensitive data model to open it.
+4. Search for **AGE**.
 <!-- Image-->
-- In the list of sensitive columns, deselect HCM1.EMPLOYEES.AGE.
+5. In the list of sensitive columns, deselect HCM1.EMPLOYEES.AGE.
 ![](./images/5.6.1.png " ")
-- Your sensitive data model is now updated and accurate.
-- Click **Save** then **Exit**.
+6. Your sensitive data model is now updated and accurate.
+7. Click **Save** then **Exit**.
 
 ## Part 6. Update a Sensitive Data Model with Oracle Data Safe
 - Using Oracle Data Safe, perform an incremental update to a sensitive data model by using the Data Discovery wizard.
 
 ### Step 1: 
-- Open SQL Developer
-- On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
-ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;
+1. Open SQL Developer
+2. On the SQL Worksheet, run the following commands to add an AGE column to the EMPLOYEES table.
+	`ALTER TABLE HCM1.EMPLOYEES ADD AGE NUMBER;`
 <!-- Need to update this as a code snippet-->
-![](./images/6.1.1.png " ")
-- On the Navigator tab, click the **Refresh** button.
-- AGE is added to the bottom of the list in the EMPLOYEES table.
-![](./images/6.1.2.png " ")
+![](./images/6.1.1.png " ")<br/>
+2. On the Navigator tab, click the **Refresh** button.
+3. AGE is added to the bottom of the list in the EMPLOYEES table.
+![](./images/6.1.2.png " ")<br/>
 
 ### **Step 2:** 
 -	Navigate to the Oracle Data Safe Service Console
 - In the Oracle Data Safe Console, click **Data Discovery**. The Select Target for Data Discovery page is displayed.
 <!-- Image--> 
-![](./images/6.2.1.png " ")
+![](./images/6.2.1.png " ")<br/>
 - Select your target database, and then click **Continue**. The **Select Sensitive Data Model** page is displayed.
 <!-- Image--> 
-![](./images/6.2.2.png " ")
+![](./images/6.2.2.png " ")<br/>
 - For **Sensitive Data Model**, click **Pick from Library**.
 <!-- Image--> 
-![](./images/6.2.3.png " ")
+![](./images/6.2.3.png " ")<br/>
 - Click **Continue**. The **Select Sensitive Data Model** page is displayed.
 - Select your sensitive data model (**SDM1**).
 <!-- Image--> 
-![](./images/6.2.4.png " ")
+![](./images/6.2.4.png " ")<br/>
 - Leave **Update the SDM with the target** selected.
-![](./images/6.2.5.png " ")
+![](./images/6.2.5.png " ")<br/>
 - Click **Continue**. The wizard launches a data discovery job.
 - When the job is finished, notice that the **Detail** column reads **Data discovery job finished successfully**.
-![](./images/6.2.6.png " ")
+![](./images/6.2.6.png " ")<br/>
 - Click **Continue**. The **Sensitive Data Model: SDM1 page** is displayed.
 - Notice that you have the newly discovered sensitive column, AGE. **Only newly discovered columns are displayed at the moment.**
-![](./images/6.2.7.png " ")
+![](./images/6.2.7.png " ")<br/>
 - **Expand all** of the nodes. **think this area never worked**
 - To view all of the sensitive columns in the sensitive data model, click **View all sensitive columns**.
 - You can toggle the view back and forth between displaying all of the sensitive columns or just the newly discovered ones.
