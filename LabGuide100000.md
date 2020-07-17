@@ -464,7 +464,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ![](./images/8.2.2.png " ")<br/>
 3. Data Discovery is required to be done before Data Masking. Select **Pick from Library** and click **Continue**.<br/>
 ![](./images/8.2.4.png " ")<br/>
-4. Select **SDM1** and click **Continue**.
+4. Select **SDM1**, keep **Update the SDM with the target** as selected and click **Continue**.
 ![](./images/8.2.5.png " ")<br/>
 5. Click **Continue** after sensitive data discovery is complete. 
 ![](./images/8.2.6.png " ")<br/>
