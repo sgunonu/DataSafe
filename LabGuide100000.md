@@ -31,16 +31,17 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 
 
 ## Part 1. Registering a Target Database
+### Step  0: 
+- View the page [here](https://docs.cloud.oracle.com/en-us/iaas/data-safe/doc/enable-oracle-data-safe.html#GUID-1293621D-A6C6-448C-AD97-38B90A9473F0) to enable Data Safe in your tenancy.
 
 ### Step  1:
 
 - The roles that you grant to this account determine the Oracle Data Safe features that you can use with your Autonomous Database. These particular roles allow you to assess users and security configurations on your Autonomous Database and start audit trail collection immediately after you register the database.
 
-
 - The following table describes the available roles for Autonomous Databases [here](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C).
 
-![](./images/1.01.png "")
-**think insert script here, and enable data safe tenancy**
+![](./images/1.01.png "")<br/> 
+**think insert script here**
 **NOTE**:You can grant or revoke roles as often as needed.
 1. Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
 2. Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
@@ -50,7 +51,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 	 - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
 - These are the roles you can add now to your SQL Developer worksheet.
 <!--Image 1.1-->
-![](./images/SQLexecute.png "")
+![](./images/SQLexecute.png "")<br/>
 <!--<img src= "./images/SQLexecute.png" align="left" height="48"width="48">-->
 
 
