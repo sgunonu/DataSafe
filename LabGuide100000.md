@@ -20,7 +20,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 
 ### Required Artifacts
 -   The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
--	An Oracle Database Service enabled in a region in your tenancy
+-	An Oracle Database Service enabled in a region in your tenancy. View the page [here](https://docs.cloud.oracle.com/en-us/iaas/data-safe/doc/enable-oracle-data-safe.html#GUID-1293621D-A6C6-448C-AD97-38B90A9473F0) to enable Data Safe in your tenancy.
 -	A registered target database in Oracle Data Safe with sample audit data and the password for the SYS user account.
 
 ### Extra Resources
@@ -31,8 +31,6 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 
 
 ## Part 1. Registering a Target Database
-### Step  0: 
-- View the page [here](https://docs.cloud.oracle.com/en-us/iaas/data-safe/doc/enable-oracle-data-safe.html#GUID-1293621D-A6C6-448C-AD97-38B90A9473F0) to enable Data Safe in your tenancy.
 
 ### Step  1:
 
