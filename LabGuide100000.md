@@ -36,9 +36,9 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 - The following table describes the available roles for Autonomous Databases [here](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/register-autonomous-databases-that-have-public-ip-addresses.html#GUID-1026A408-2D57-420C-927B-588948C2A89C).
 
 ![](./images/1.01.png "")<br/> 
-**think insert script here**
 **NOTE**:You can grant or revoke roles as often as needed.
 1. Using a tool like SQL Developer, log in to your Autonomous Database as the Admin user (ADMIN).
+
 2. Grant or revoke a role from the Oracle Data Safe service account by running one of the following commands:
 	`EXECUTE DS_TARGET_UTIL.GRANT_ROLE('role_name');`
 	or
@@ -48,7 +48,8 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 <!--Image 1.1-->
 ![](./images/SQLexecute.png "")<br/>
 <!--<img src= "./images/SQLexecute.png" align="left" height="48"width="48">-->
-
+**NOTE** If you don't have any data, populate your database with some new users and data to effectively use this lab. Use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/UsersScript.sql) to add new users.
+Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/TableScript.sql) to add new tables.
 
 ### Step 2:
 - You can register an Autonomous Database from its Console in Oracle Cloud Infrastructure Console. From this Console, you can also access the Oracle Data Safe Console.
