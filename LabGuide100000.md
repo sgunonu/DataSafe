@@ -16,19 +16,16 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   Learn how to update a sensitive data model with Oracle Data Safe
 -   Learn how to create a sensitive type and category with Oracle Data Safe
 -   Learn how to mask senstive data with Oracle Data Safe
-<!--![](./images/1.png " ")-->
 
 ### Required Artifacts
 -   The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
--	An Oracle Database Service enabled in a region in your tenancy. View the page [here](https://docs.cloud.oracle.com/en-us/iaas/data-safe/doc/enable-oracle-data-safe.html#GUID-1293621D-A6C6-448C-AD97-38B90A9473F0) to enable Data Safe in your tenancy.
+-	An Oracle Database Service enabled in a region in your tenancy. 
 -	A registered target database in Oracle Data Safe with sample audit data and the password for the SYS user account.
 
 ### Extra Resources
 - Click this link learn more about Enabling Data Safe in a region: [Enable Data Safe](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/enable-oracle-data-safe.html#GUID-409260CE-2D7B-4029-B7CA-2EDD6E961CEB)
 -   To learn more about Oracle Autonomous Data Warehouse (ADW), feel free to watch the following video by clicking on this link: [ADW - How it Works](https://www.youtube.com/watch?v=f4BurlkdEQM)
--   To learn more about Oracle Application Express (APEX), feel free to explore the capabilities by clicking on this link: [APEX Overview](https://apex.oracle.com/en/)
--   Additionally, to see an example of what kind of sites and apps are possible to quickly create with APEX, check out a showcase by clicking on this link: [Built with APEX](https://www.builtwithapex.com/)
-
+-   To learn more about Oracle Application Express (Data Safe), feel free to explore the capabilities by clicking on this link: [Data Safe](https://docs.cloud.oracle.com/en-us/iaas/data-safe/index.html)
 
 ## Part 1. Registering a Target Database
 
