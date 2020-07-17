@@ -457,6 +457,20 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 3. Move the **Hide Oracle Predefined** slider to the right to view your custom sensitive type in the list.
 **All Done!**
 
+## Part 8. Mask Sensitive Data with Oracle Data Safe
+
+### Step 1:
+1. Open SQL Developer
+2. Run the following script:
+### Step 2: 
+Mask CC info
+
+### Step 3: 
+1. Open SQL Developer
+2. Run the following script:
+
+**All Done!**
+
 Congratulations! You have just completed the Oracle Data Safe Lab.
 
 **Summary** 
