@@ -400,19 +400,16 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 3. Move the **Hide Oracle Predefined** slider to the right. The list removes the Oracle defined sensitive types, showing only the ones that you have defined. Move the slider back to the left.
 <!-- Image--> 
 ![](./images/7.1.3.png " ")<br/>
-4. To sort the list by sensitive category, position your cursor over the **Sensitive Type Category and Sensitive Type Name** header, and then click the arrow.
-<!-- Image--> 
-![](./images/7.1.4.png " ")<br/>
-5. To view the definition for a sensitive type, click directly on any one of the sensitive types. The **Sensitive Type Details** dialog box is displayed.
+4. To view the definition for a sensitive type, click directly on any one of the sensitive types. The **Sensitive Type Details** dialog box is displayed.
 <!-- Image--> 
 ![](./images/7.1.5.png " ")<br/>
 	**NOTE:** Here you can view the sensitive type's short name, description, column name pattern (regular expression), column comment pattern (regular 		expression), column data pattern (regular expression), the search pattern semantic (And or Or), the default masking format associated with the sensitive 	type, and the sensitive category and resource group to which the sensitive type belongs.<br/>
-6. Click **Close** to close the dialog box.<br/>
-7. To check if there is a sensitive type that discovers department IDs, in the search field, enter **Department**. The search finds **Department Name**, but nothing for department IDs.<br/>
+5. Click **Close** to close the dialog box.<br/>
+6. To check if there is a sensitive type that discovers department IDs, in the search field, enter **Department**. The search finds **Department Name**, but nothing for department IDs.<br/>
 <!-- Image--> 
 ![](./images/7.1.6.png " ")<br/>
-8. Clear the search field, and then press **Enter** to restore the list.<br/>
-9. Keep this page open because you return to it later in the lab.<br/>
+7. Clear the search field, and then press **Enter** to restore the list.<br/>
+8. Keep this page open because you return to it later in the lab.<br/>
 
 ### **Step 2:** 
 1. Open SQL Developer
@@ -425,7 +422,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 
 ### **Step 3:** 
 1. Return to the **Sensitive Types** page in the Oracle Data Safe Console. Click **Add**<br/>
- The **Create Sensitive Type** dialog box is displayed. - From the **Create Like** drop-down list, select **Employee ID Number**. 
+ The **Create Sensitive Type** dialog box is displayed. - From the **Create Like** drop-down list, select **Employee ID Number**. <br/>
     **NOTE:** It will autofill to a different Sensitive Type, so adjust accordingly.
 	<!-- Image--> 
 	![](./images/7.3.1.png " ")<br/>
@@ -455,7 +452,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ### Step 1:
 1. Open SQL Developer and login as **HCM1** user.
 2. Run the following script:
-'SELECT * FROM SUPPLEMENTAL_DATA;'
+`SELECT * FROM SUPPLEMENTAL_DATA;`
 3. Notice that you are seeing Payment Account Number, this sensitive data was discovered in **Data Discovery**. View the Account number for TAXPAYER_ID 173-14-3494.<br/>
 ![](./images/8.1.1.png " ")<br/>
 
@@ -474,7 +471,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 6. Select **Financial Information** as the Payment Account Number falls under that category. Click **Continue**.<br/>
 ![](./images/8.2.5.png " ")<br/>
 7. Wait for the Discovery to complete and select **Continue**.<br/>
-8. Notice that there are two tables with sensitive financial information: EMP_EXTENDED and SUPPLEMENTAL_DATA. Click **Save and Continue**.<br/>
+8. Notice that there are two tables with sensitive financial information: EMP_EXTENDED and SUPPLEMENTAL_DATA. **Select All** Sensitive Columns and click **Save and Continue**.<br/>
 ![](./images/8.2.6.png " ")<br/>
 9. Select **Confirm Policy**
 ![](./images/8.2.7.png " ")<br/>
@@ -488,15 +485,15 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ### Step 3: 
 1. Open SQL Developer
 2. Run the following script:
-'SELECT * FROM SUPPLEMENTAL_DATA;'
+`SELECT * FROM SUPPLEMENTAL_DATA;`
 ![](./images/8.3.1.png " ")<br/>
-3. Notice that the Payment Account Number has been changed to a randomized credit card number for the TAXPAYER_ID 173-14-3494. <br/>
+3. Notice that the **Payment Account Number** has been changed to a randomized credit card number for the TAXPAYER_ID 173-14-3494. <br/>
 ![](./images/8.3.2.png " ")<br/>
 4. Click **Library** and select **Masking Formats** and view the different masking formats.<br/>
 5. View **Credit Card Number** and **Credit Card Number (Hyphenated)**.<br/>
 ![](./images/8.3.3.png " ")<br/>
-![](./images/8.3.4.png " ")<br/>
 **NOTE** By default Data Safe selected Credit Card Number and replaced the value by that masking format. This masking can be done once more to select **Credit Card Number (Hyphenated)** to follow the same format as the previous Credit Card value. 
+![](./images/8.3.4.png " ")<br/>
 
 **All Done!**
 Congratulations! You have just completed the Oracle Data Safe Lab.
