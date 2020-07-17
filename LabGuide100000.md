@@ -279,8 +279,8 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ![](./images/5.2.2.png " ")<br/>
 5. On the **Select Target for Data Model Verification** page, select your target database, and click **Continue**. The verification job is started. Once finished, click **Continue**.
 <!-- Image-->
-![](./images/5.2.3.png " ")<br/>
-![](./images/5.2.4.png " ")<br/> **think verify against ADWDEMO NOT DATASAFEADW**
+![](./images/5.2.4.png " ")<br/>
+![](./images/5.2.3.png " ")<br/> 
 6. On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE. Click **Continue**.
 **NOTE** The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
 <!-- Image-->
@@ -319,7 +319,6 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 
 ### Step 5: 
 **think we might drop in case of data masking**
-**think is we want to **
 1. Return to Oracle Data Safe.
 2. Click the **Home** tab, and then click **Data Discovery**.
 <!-- Image--> 
