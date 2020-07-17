@@ -158,13 +158,13 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 6.	Close the User Details dialog box.<br/>
 <!--**NOTE** DBA Debra is not using her audit admin role, you can run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA: `revoke audit_admin from DBA_DEBRA`-->
 
-### Step 4:
+<!--### Step 4:
 <!-- Image 3.10-->
-2.	Return to Oracle Data Safe.
+<!--2.	Return to Oracle Data Safe.
 3.	Click the **Home** tab, and then click **User Assessment**.
 4.	Select the check box for your target database, and then click **Assess**.
 5.	Click **View Report**.
-6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role.
+6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role.-->
 
 ## Part 4. Discover Sensitive Data with Oracle Data Safe
 
@@ -190,14 +190,13 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 6.	On the **Select Schemas for Sensitive Data Discovery** page, select the schema that you want Data Discovery to search. In this case, select the **HCM1** schema, and click **Continue**.<br/>
 <!-- Image 4.4-->
 ![](./images/4.1.4.png " ")<br/>
-7.	On the **Select Sensitive Types for Sensitive Data Discovery** page, select the **Select All** check box. 
+7.	On the **Select Sensitive Types for Sensitive Data Discovery** page, select the **Select All** check box. <br/>
 **NOTE** Data Discovery categorizes its sensitive types as Identification Information, Biographic Information, IT Information, Financial Information, Healthcare Information, Employment Information, and Academic Information. Do the following:<br/>
-8.	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types. Scroll and review the sensitive types available.<br/>
+8.	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types.Scroll and review the sensitive types available.<br/>
 <!-- Image 4.5-->
-**THINK IMAGE replace**
+![](./images/4.1.5.png " ")<br/>
 9.	At the bottom of the page, select the **Non-Dictionary Relationship Discovery** check box.
 	**NOTE** Oracle Data Safe automatically discovers referential relationships defined in the data dictionary. The **Non-Dictionary Relationship Discovery** feature helps to identify application-level parent-child relationships that are not defined in the data dictionary. It helps discover application-level relationships so that data integrity is maintained during data masking.<br/>
-	![](./images/4.1.5.png " ")<br/>
 10.	When you are ready to start the data discovery job, click **Continue**.<br/>
 <!-- Image 4.6-->
 11.	The job will take a few minutes to complete. If the job is successful, the **Detail** column states Data discovery job finished successfully, and you can click **Continue**. Otherwise, you need to click **Back** or **Exit** and investigate the issue.
@@ -246,16 +245,12 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 
 
 ### Step 4: 
-
 1.	Click the **Library**  tab and click **Data Discovery.** and go to **Sensitive Data Models**.
 2.	For each sensitive data model, you can view information about when your sensitive data model was created, when it was last updated, and who owns it.-	If you need to remove your sensitive data model from the Library, you can select the check box for it, and click **Delete**. 
 <!-- Image 4.17-->
 ![](./images/4.5.1.png " ")<br/>
 3. 	You can also **Download** the Sensitive Data Model. Open the file, and review the XML code. (Save the file to your desktop as **SDM1.xml**).
 ![](./images/4.6.1.png " ")<br/>
-
-
-
 
 ## Part 5. Verify Sensitive Data Model with Oracle Data Safe
 - Using Oracle Data Safe, verify a sensitive data model by using the verification option in the Library and by using the Data Discovery wizard.
@@ -264,7 +259,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 1. Open SQL Developer
 2. On the SQL Worksheet, run the following command to add an AGE column to the EMPLOYEES table.
 	`ALTER TABLE EMPLOYEES` 
- 	 `ADD AGE NUMBER;` <!-- Need to update this as a code snippet-->
+ 	`ADD AGE NUMBER;` <!-- Need to update this as a code snippet-->
 3. Click the **Refresh** button to view the newly added column.
 <!--image--> 
 ![](./images/5.1.1.png " ")
@@ -279,12 +274,10 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ![](./images/5.2.2.png " ")<br/>
 5. On the **Select Target for Data Model Verification** page, select your target database, and click **Continue**. The verification job is started. Once finished, click **Continue**.
 <!-- Image-->
+![](./images/5.2.3.png " ")<br/>
 ![](./images/5.2.4.png " ")<br/>
-![](./images/5.2.3.png " ")<br/> 
-6. On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE. Click **Continue**.
+6. On the **Data Model Verification Result** page, notice that there are no differences to report. The verification job did not find the new sensitive column, AGE. Click **Continue**.<br/>
 **NOTE** The verification feature checks whether the sensitive columns in the sensitive data model are present in the target database. If there are some present in the sensitive data model, but missing in the target database, it reports them. In addition, it reports new referential relationships for the columns already present in the sensitive data model. It does not, however, discover ALL the relationships.
-<!-- Image-->
-![](./images/5.2.5.png " ")<br/>
 
 ### Step 3: 
 1. On the **Sensitive Data Model: SDM1** page, click **Add**. The **Add Sensitive Columns** dialog box is displayed.
@@ -319,6 +312,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 
 ### Step 5: 
 **think we might drop in case of data masking**
+**think is we want to **
 1. Return to Oracle Data Safe.
 2. Click the **Home** tab, and then click **Data Discovery**.
 <!-- Image--> 
@@ -430,7 +424,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 
 
 ### **Step 3:** 
-1. Return to the **Sensitive Types** page in the Oracle Data Safe Console. Click **Add**
+1. Return to the **Sensitive Types** page in the Oracle Data Safe Console. Click **Add**<br/>
  The **Create Sensitive Type** dialog box is displayed. - From the **Create Like** drop-down list, select **Employee ID Number**. 
     **NOTE:** It will autofill to a different Sensitive Type, so adjust accordingly.
 	<!-- Image--> 
