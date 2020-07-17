@@ -83,9 +83,9 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 4. On the **Security Assessment** page, select the check box for your target database, and click **Assess**.
 <!-- Image 2-->
 ![](./images/2.1.2.png " ")<br/>
-5. Wait a moment for the report to generate.
-6. When the report is generated, review the high risk, medium risk, and low risk values.
-7. In the **Last Generated Report** column, click **View Report**.
+5. Wait a moment for the report to generate.<br/>
+6. When the report is generated, review the high risk, medium risk, and low risk values.<br/>
+7. In the **Last Generated Report** column, click **View Report**.<br/>
 <!-- Image 3-->
 ![](./images/2.1.3.png " ")<br/>
 8. The **Comprehensive Assessment** report is displayed on the **Reports** tab.
@@ -98,9 +98,9 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ![](./images/2.1.6.png " ")<br/>
 ![](./images/2.1.7.png " ")<br/>
 ![](./images/2.1.8.png " ")<br/>
-11.	View the values for security controls, user security, and security configurations. These totals show you the number of findings for each high-level category.
-12.	Browse the report by scrolling down and expanding and collapsing categories. Each category lists related findings about your database and how you can make changes to improve its security.
-13.	View the **Summary** table. This table compares the number of findings for each category and counts the number of findings per risk level. It helps you to identify the areas that need attention on your database.
+11.	View the values for security controls, user security, and security configurations. These totals show you the number of findings for each high-level category.<br/>
+12.	Browse the report by scrolling down and expanding and collapsing categories. Each category lists related findings about your database and how you can make changes to improve its security.<br/>
+13.	View the **Summary** table. This table compares the number of findings for each category and counts the number of findings per risk level. It helps you to identify the areas that need attention on your database.<br/>
 <!-- Image 6-->
 ![](./images/2.1.9.png " ")<br/>
 
