@@ -91,7 +91,7 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 7. In the **Last Generated Report** column, click **View Report**.<br/>
 <!-- Image 3-->
 ![](./images/2.1.3.png " ")<br/>
-8. The **Comprehensive Assessment** report is displayed on the **Reports** tab.
+8. The **Comprehensive Assessment** report is displayed on the **Reports** tab.<br/> 
 9. In the upper right corner, view the target name, when the database was assessed, and the database version.
 <!-- Image 4-->
 ![](./images/2.1.4.png " ")<br/>
@@ -156,18 +156,15 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 4.	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
 5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.<br/>
 6.	Close the User Details dialog box.<br/>
+<!--**NOTE** DBA Debra is not using her audit admin role, you can run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA: `revoke audit_admin from DBA_DEBRA`-->
 
 ### Step 4:
-<!-- Figure out if SQL developer parts should be kept -->
-1.	Run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA:
-**think add sql script**
 <!-- Image 3.10-->
 2.	Return to Oracle Data Safe.
 3.	Click the **Home** tab, and then click **User Assessment**.
 4.	Select the check box for your target database, and then click **Assess**.
 5.	Click **View Report**.
 6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role.
-
 
 ## Part 4. Discover Sensitive Data with Oracle Data Safe
 
