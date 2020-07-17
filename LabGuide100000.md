@@ -192,12 +192,12 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ![](./images/4.1.4.png " ")<br/>
 7.	On the **Select Sensitive Types for Sensitive Data Discovery** page, select the **Select All** check box. 
 **NOTE** Data Discovery categorizes its sensitive types as Identification Information, Biographic Information, IT Information, Financial Information, Healthcare Information, Employment Information, and Academic Information. Do the following:<br/>
-8.	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types.Scroll and review the sensitive types available.<br/>
+8.	Select **Expand all** at the top. Notice that you can select individual sensitive types, sensitive categories, and all sensitive types. Scroll and review the sensitive types available.<br/>
 <!-- Image 4.5-->
-![](./images/4.1.5.png " ")<br/>
 **THINK IMAGE replace**
 9.	At the bottom of the page, select the **Non-Dictionary Relationship Discovery** check box.
 	**NOTE** Oracle Data Safe automatically discovers referential relationships defined in the data dictionary. The **Non-Dictionary Relationship Discovery** feature helps to identify application-level parent-child relationships that are not defined in the data dictionary. It helps discover application-level relationships so that data integrity is maintained during data masking.<br/>
+	![](./images/4.1.5.png " ")<br/>
 10.	When you are ready to start the data discovery job, click **Continue**.<br/>
 <!-- Image 4.6-->
 11.	The job will take a few minutes to complete. If the job is successful, the **Detail** column states Data discovery job finished successfully, and you can click **Continue**. Otherwise, you need to click **Back** or **Exit** and investigate the issue.
