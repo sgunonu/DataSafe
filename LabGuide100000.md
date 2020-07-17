@@ -463,26 +463,25 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 2. Select Target and click **Continue**
 ![](./images/8.2.2.png " ")<br/>
 3. Data Discovery is required to be done before Data Masking. Select **Pick from Library** and click **Continue**.<br/>
-4. Select **HCM1** Schema, click **Continue**.<br/>
 ![](./images/8.2.4.png " ")<br/>
-5. Select **SDM1** and click **Continue**.
+4. Select **SDM1** and click **Continue**.
 ![](./images/8.2.5.png " ")<br/>
-6. Click **Continue** after sensitive data discovery is complete. 
+5. Click **Continue** after sensitive data discovery is complete. 
 ![](./images/8.2.6.png " ")<br/>
-7. Click **Report**
+6. Click **Report**
 ![](./images/8.2.7.png " ")<br/>
-8. Click **Continue to mask the data**
+7. Click **Continue to mask the data**
 ![](./images/8.2.8.png " ")<br/>
-9. Select a target for Data Masking and click **Continue**
-10. Click **Select All** to deselect all columns. Only select **Financial Information** as the Payment Account Number falls under that category. Click **Confirm Policy**.<br/>
+8. Select a target for Data Masking and click **Continue**
+9. Click **Select All** to deselect all columns. Only select **Financial Information** as the Payment Account Number falls under that category. Click **Confirm Policy**.<br/>
 ![](./images/8.2.9.png " ")<br/>
-11. Schedule the Masking Job for **Right Now** and click **Review**.<br/>
+10. Schedule the Masking Job for **Right Now** and click **Review**.<br/>
 ![](./images/8.2.10.png " ")<br/>
 **NOTE** Make sure this is not done on a production database. <br/>
-12. Click **Submit** and wait for the masking job to be finished.<br/>
+11. Click **Submit** and wait for the masking job to be finished.<br/>
 ![](./images/8.2.11.png " ")<br/>
-13. Click **Report** to view your successful Masking Job.<br/>
-14. Click **Expand All** to see all the values that have been masked. 
+12. Click **Report** to view your successful Masking Job.<br/>
+13. Click **Expand All** to see all the values that have been masked. 
 ![](./images/8.2.12.png " ")<br/>
 
 ### Step 3: 
