@@ -44,7 +44,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 	or
 	`EXECUTE DS_TARGET_UTIL.REVOKE_ROLE('role_name');`
 	 - where role_name is the name of an Oracle Data Safe role. role_name must be in quotation marks.
-- These are the roles you can add now to your SQL Developer worksheet.
+- These are the roles you can add now to your SQL Developer worksheet.<br/> 
 `EXECUTE DS_TARGET_UTIL.GRANT_ROLE('DS$ASSESSMENT_ROLE');`<br/> 
 `EXECUTE DS_TARGET_UTIL.GRANT_ROLE('DS$AUDIT_COLLECTION_ROLE');`<br/> 
 `EXECUTE DS_TARGET_UTIL.GRANT_ROLE('DS$DATA_MASKING_ROLE');`<br/> 
