@@ -461,10 +461,10 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ## Part 8. Mask Sensitive Data with Oracle Data Safe
 
 ### Step 1:
-1. Open SQL Developer and login as HCM1 User
+1. Open SQL Developer and login as **HCM1** user.
 2. Run the following script:
 'SELECT * FROM SUPPLEMENTAL_DATA;'
-3. Notice that you are seeing Payment Account Number, this sensitive data was discovered in **Data Discovery**.View the Account number for TAXPAYER_ID 173-14-3494.
+3. Notice that you are seeing Payment Account Number, this sensitive data was discovered in **Data Discovery**. View the Account number for TAXPAYER_ID 173-14-3494.<br/>
 ![](./images/8.1.1.png " ")<br/>
 
 ### Step 2: 
