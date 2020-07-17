@@ -215,11 +215,12 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
     -	Dictionary-based referential relationships<br/>
     -	Non-dictionary referential relationships<br/>
 5.	Take a look at how the sensitive columns are organized. Initially, they are grouped by sensitive categories and sensitive types. To list the sensitive columns by schema and table, select **Schema View** from the drop-down list next to the **Expand All Slider**. **Schema View** is useful for quickly finding a sensitive *column* in a table and for viewing the list of sensitive columns in a table. For example, in the EMPLOYEES table there are several sensitive columns listed.<br/>
+**NOTE** If needed, you can add and remove sensitive columns from your sensitive data model by deselecting or selecting the box. You can use the **Add** button to add more sensitive columns.<br/>
 <!--Image-->
 ![](./images/4.2.3.png " ")<br/>
-**NOTE**	If needed, you can add and remove sensitive columns from your sensitive data model by deselecting or selecting the box. You can use the **Add** button to add more sensitive columns.<br/>
-**NOTE**	Notice that some of the sensitive columns do not have a check box. These are dependent columns. They have a relationship with their parent column. For example, in the EMPLOYEES table, JOB_ID is listed. It has a relationship defined in the Oracle data dictionary to the JOBS.JOB_ID sensitive column. If you remove a sensitive column that has a referential relationship, both the sensitive column and referential relationship are removed from the sensitive data model. Therefore, if you deselect JOBS.JOB_ID, then EMPLOYEES.JOB_ID is removed too.<br/>
-6.	View the sample data for the HCM1.SUPPLEMENTAL_DATA.LAST_INS_CLAIM column (expand HCM1 at the top, then expand supplemental data, then expand last_ins_claim).	The sensitive type is **Healthcare Provider** and the discovered sensitive column is LAST_INS_CLAIM, which has values such as Cavity and Hair Loss. Your value may be different. This column isn't a Healthcare Provider type of column and thus it is a false positive. You can deselect this column. Being able to remove a sensitive column is important when your sensitive data model includes false positives. To be able to recognize false positives, it helps to know your data well.<br/>
+**NOTE** Notice that some of the sensitive columns do not have a check box. These are dependent columns and they have a relationship with their parent column. For example, in the EMPLOYEES table, JOB_ID is listed. It has a relationship defined in the Oracle data dictionary to the JOBS.JOB_ID sensitive column. If you remove a sensitive column that has a referential relationship, both the sensitive column and referential relationship are removed from the sensitive data model. Therefore, if you deselect JOBS.JOB_ID, then EMPLOYEES.JOB_ID is removed too.<br/>
+
+6. View the sample data for the HCM1.SUPPLEMENTAL_DATA.LAST_INS_CLAIM column (expand HCM1 at the top, then expand supplemental data, then expand last_ins_claim). The sensitive type is **Healthcare Provider** and the discovered sensitive column is LAST_INS_CLAIM, which has values such as Cavity and Hair Loss. Your value may be different. This column isn't a Healthcare Provider type of column and thus it is a false positive; you can deselect this column. Being able to remove a sensitive column is important when your sensitive data model includes false positives. To be able to recognize false positives, it helps to know your data well.<br/>
 <!--**think if images should go here**-->
 ![](./images/4.2.4.png " ")<br/>
 
@@ -457,30 +458,34 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ![](./images/8.1.1.png " ")<br/>
 
 ### Step 2: 
-1. Open up Data Safe Console, click **HOME** then click **Data Masking**.<br/>
+1. Open up Data Safe Console, click **HOME** then click **Data Discovery**.<br/>
 ![](./images/8.2.1.png " ")<br/>
-2. Select Target Database and click **Continue**<br/>
+2. Select Target and click **Continue**
 ![](./images/8.2.2.png " ")<br/>
-3. Leave everything as the pre-selected options, choose a Resource Group. Click **Continue**<br/>
+3. Click **Continue to mask the data**<br/>
 ![](./images/8.2.3.png " ")<br/>
-**NOTE** You may use the Sensitive Data Model you have created previously as well.<br/>
-<!--image-->
-4. Data Discovery is required to be done before Data Masking. Select a Target for Sensitive Data Discovery and click **Continue**.<br/>
+4. Data Discovery is required to be done before Data Masking. Select **Pick from Library** and click **Continue**.<br/>
 5. Select **HCM1** Schema, click **Continue**.<br/>
 ![](./images/8.2.4.png " ")<br/>
-6. Select **Financial Information** as the Payment Account Number falls under that category. Click **Continue**.<br/>
+6. Select **SDM1** and click **Continue**.
 ![](./images/8.2.5.png " ")<br/>
-7. Wait for the Discovery to complete and select **Continue**.<br/>
-8. Notice that there are two tables with sensitive financial information: EMP_EXTENDED and SUPPLEMENTAL_DATA. **Select All** Sensitive Columns and click **Save and Continue**.<br/>
+7. Click **Continue** after sensitive data discovery is complete. 
 ![](./images/8.2.6.png " ")<br/>
-9. Select **Confirm Policy**
+8. Click **Report**
 ![](./images/8.2.7.png " ")<br/>
-10. Schedule the Masking Job for **Right Now** and click **Review**.<br/>
+9. Click **Continue to mask the data**
 ![](./images/8.2.8.png " ")<br/>
-**NOTE** Make sure this is not done on a production database. <br/>
-11. Click **Submit** and wait for the masking job to be finished.<br/>
+10. Select a target for Data Masking and click **Continue**
+11. Click **Select All** to deselect all columns. Only select **Financial Information** as the Payment Account Number falls under that category. Click **Confirm Policy**.<br/>
 ![](./images/8.2.9.png " ")<br/>
-12. Click **Report** to view your successful Masking Job.<br/>
+12. Schedule the Masking Job for **Right Now** and click **Review**.<br/>
+![](./images/8.2.10.png " ")<br/>
+**NOTE** Make sure this is not done on a production database. <br/>
+13. Click **Submit** and wait for the masking job to be finished.<br/>
+![](./images/8.2.11.png " ")<br/>
+14. Click **Report** to view your successful Masking Job.<br/>
+15. Click **Expand All** to see all the values that have been masked. 
+![](./images/8.2.12.png " ")<br/>
 
 ### Step 3: 
 1. Open SQL Developer
