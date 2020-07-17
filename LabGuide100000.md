@@ -148,8 +148,8 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 <!--Image-->
 ![](./images/3.3.5.png " ")<br/>
 4.	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
-5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.
-6.	Close the User Details dialog box.
+5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.<br/>
+6.	Close the User Details dialog box.<br/>
 
 ### Step 4:
 <!-- Figure out if SQL developer parts should be kept -->
@@ -160,7 +160,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 3.	Click the **Home** tab, and then click **User Assessment**.
 4.	Select the check box for your target database, and then click **Assess**.
 5.	Click **View Report**.
-6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role. **think MAJOR SAD FACE THINK ** **WUT*WHAT**
+6.	Look for changes in the **User Assessment** report. Notice that DBA_DEBRA no longer has the AUDIT_ADMIN role.
 
 
 ## Part 4. Discover Sensitive Data with Oracle Data Safe
@@ -171,7 +171,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 <!-- Image 4.1-->
 ![](./images/4.1.1.png " ")<br/>
 
-3.	On the Select Target for Sensitive Data Discovery page, your target database is listed.
+3.	On the Select Target for Sensitive Data Discovery page, your target database is listed.<br/>
 	 **NOTE** Often, you want to perform data discovery against a production database where you can get an accurate and up-to-date picture of your sensitive data. You can discover sensitive data in the source database (a production or copy) and mask the cloned copies of this source database. Or, you can simply run a data discovery job on the actual database that you want to mask.<br/>
 4.	Select your target database, and then click **Continue at the bottom right**.
 <!-- Image 4.2-->
