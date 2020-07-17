@@ -490,9 +490,9 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 `SELECT * FROM SUPPLEMENTAL_DATA;`
 ![](./images/8.3.1.png " ")<br/>
 3. Notice that the **Payment Account Number** has been changed to a randomized credit card number for the TAXPAYER_ID 173-14-3494. <br/>
-![](./images/8.3.2.png " ")<br/>
 4. Click **Library** and select **Masking Formats** and view the different masking formats.<br/>
-5. View **Credit Card Number** and **Credit Card Number (Hyphenated)**.<br/>
+![](./images/8.3.2.png " ")<br/>
+5. View **Credit Card Number** and **Credit Card Number (Hyphenated)** by clicking on them.<br/>
 ![](./images/8.3.3.png " ")<br/>
 **NOTE** By default Data Safe selected Credit Card Number and replaced the value by that masking format. This masking can be done once more to select **Credit Card Number (Hyphenated)** to follow the same format as the previous Credit Card value. 
 ![](./images/8.3.4.png " ")<br/>
