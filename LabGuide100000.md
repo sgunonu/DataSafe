@@ -468,40 +468,40 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ![](./images/8.1.1.png " ")<br/>
 
 ### Step 2: 
-1. Open up Data Safe Console, click **HOME** then click **Data Masking**.
+1. Open up Data Safe Console, click **HOME** then click **Data Masking**.<br/>
 ![](./images/8.2.1.png " ")<br/>
-2. Select Target Database and click **Continue**
+2. Select Target Database and click **Continue**<br/>
 ![](./images/8.2.2.png " ")<br/>
-3. Leave everything as the pre-selected options, choose a Resource Group. Click **Continue**
+3. Leave everything as the pre-selected options, choose a Resource Group. Click **Continue**<br/>
 ![](./images/8.2.3.png " ")<br/>
-**NOTE** You may use the Sensitive Data Model you have created previously as well.
+**NOTE** You may use the Sensitive Data Model you have created previously as well.<br/>
 <!--image-->
-4. Data Discovery is required to be done before Data Masking. Select a Target for Sensitive Data Discovery and click **Continue**.
-5. Select **HCM1** Schema, click **Continue**.
+4. Data Discovery is required to be done before Data Masking. Select a Target for Sensitive Data Discovery and click **Continue**.<br/>
+5. Select **HCM1** Schema, click **Continue**.<br/>
 ![](./images/8.2.4.png " ")<br/>
-6. Select **Financial Information** as the Payment Account Number falls under that category. Click **Continue**.
+6. Select **Financial Information** as the Payment Account Number falls under that category. Click **Continue**.<br/>
 ![](./images/8.2.5.png " ")<br/>
-7. Wait for the Discovery to complete and select **Continue**.
-8. Notice that there are two tables with sensitive financial information: EMP_EXTENDED and SUPPLEMENTAL_DATA. Click **Save and Continue**.
+7. Wait for the Discovery to complete and select **Continue**.<br/>
+8. Notice that there are two tables with sensitive financial information: EMP_EXTENDED and SUPPLEMENTAL_DATA. Click **Save and Continue**.<br/>
 ![](./images/8.2.6.png " ")<br/>
 9. Select **Confirm Policy**
 ![](./images/8.2.7.png " ")<br/>
-10. Schedule the Masking Job for **Right Now** and click **Review**.
+10. Schedule the Masking Job for **Right Now** and click **Review**.<br/>
 ![](./images/8.2.8.png " ")<br/>
-**NOTE** Make sure this is not done on a production database. 
-11. Click **Submit** and wait for the masking job to be finished.
+**NOTE** Make sure this is not done on a production database. <br/>
+11. Click **Submit** and wait for the masking job to be finished.<br/>
 ![](./images/8.2.9.png " ")<br/>
-12. Click **Report** to view your successful Masking Job.
+12. Click **Report** to view your successful Masking Job.<br/>
 
 ### Step 3: 
 1. Open SQL Developer
 2. Run the following script:
 'SELECT * FROM SUPPLEMENTAL_DATA;'
 ![](./images/8.3.1.png " ")<br/>
-3. Notice that the Payment Account Number has been changed to a randomized credit card number for the TAXPAYER_ID 173-14-3494. 
+3. Notice that the Payment Account Number has been changed to a randomized credit card number for the TAXPAYER_ID 173-14-3494. <br/>
 ![](./images/8.3.2.png " ")<br/>
-4. Click **Library** and select **Masking Formats** and view the different masking formats.
-5. View **Credit Card Number** and **Credit Card Number (Hyphenated)**.
+4. Click **Library** and select **Masking Formats** and view the different masking formats.<br/>
+5. View **Credit Card Number** and **Credit Card Number (Hyphenated)**.<br/>
 ![](./images/8.3.3.png " ")<br/>
 ![](./images/8.3.4.png " ")<br/>
 **NOTE** By default Data Safe selected Credit Card Number and replaced the value by that masking format. This masking can be done once more to select **Credit Card Number (Hyphenated)** to follow the same format as the previous Credit Card value. 
