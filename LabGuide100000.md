@@ -27,6 +27,37 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 -   To learn more about Oracle Autonomous Data Warehouse (ADW), feel free to watch the following video by clicking on this link: [ADW - How it Works](https://www.youtube.com/watch?v=f4BurlkdEQM)
 -   To learn more about Oracle Application Express (Data Safe), feel free to explore the capabilities by clicking on this link: [Data Safe](https://docs.cloud.oracle.com/en-us/iaas/data-safe/index.html)
 
+## Part 0. Enable Data Safe for your Tenancy
+- Oracle Data Safe administrators can enable Oracle Data Safe in a region of their tenancy. Be aware that it is not possible to disable Oracle Data Safe after it's enabled.
+### **Step 1:** 
+1. To enable Oracle Data Safe, you must belong to one of the following groups in Oracle Cloud Infrastructure Identity and Access Management (IAM):
+2. Your tenancy's **Administrators group**. This group has permission on all resources in your tenancy.
+**NOTE:** A group in your tenancy that has the **manage** permission for Oracle Data Safe and can **inspect** groups in the tenancy.
+3. Grant a group all permissions in a tenancy
+4. To grant the Data-Safe-Admins group all permissions on all resources in a tenancy, the policy might be:
+	- Allow group Data-Safe-Admins to manage all-resources in tenancy <!-- Change this to add code in md-->
+	- Allow group Data-Safe-Admins to inspect groups in tenancy
+	- Make a group an Oracle Data Safe administrators group for the whole tenancy
+5. To allow the Data-Safe-Admins group to enable and manage Oracle Data Safe in any region of a tenancy, the policy might be as follows. Note that the group cannot manage all resources in the tenancy with this permission.
+Allow group Data-Safe-Admins to manage data-safe in tenancy
+Allow group Data-Safe-Admins to inspect groups in tenancy
+Make a group an Oracle Data Safe administrators group for a particular region in a tenancy
+6. To allow a Data-Safe-Admins group to enable and manage Oracle Data Safe only in the us-phoenix-1 region of a tenancy, include a where clause in your policy statement:
+	- Allow group Data-Safe-Admins to manage data-safe in tenancy where request.region='phx'
+	- Allow group Data-Safe-Admins to inspect groups in tenancy
+
+For more information please see [Data Safe Documentation](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/enable-oracle-data-safe.html#GUID-409260CE-2D7B-4029-B7CA-2EDD6E961CEB)
+
+### **Step 2:** 
+- Both native and federated users in Oracle Cloud Infrastructure can enable Oracle Data Safe.
+1. Ensure that you have the required permissions for enabling Oracle Data Safe.
+2. Sign in to the Oracle Cloud Infrastructure Console. <!-- Add login images-->
+3. At the top of the page, select the region in which you want to enable Oracle Data Safe.
+4. From the navigation menu, select **Data Safe**.
+5. Click **Enable Data Safe**.
+6. Collapse
+
+
 ## Part 1. Registering a Target Database
 
 ### Step  1:
