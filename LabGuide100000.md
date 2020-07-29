@@ -10,7 +10,7 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 ### Objectives
 -   Learn how to register a target database
 -   Learn how to assess users and database configurations with Oracle Data Safe 
--   Learn how to dicovery, verify and update a sensitive data model with Oracle Data Safe
+-   Learn how to discover, verify and update a sensitive data model with Oracle Data Safe
 -   Learn how to create a sensitive type and category with Oracle Data Safe
 -   Learn how to mask senstive data with Oracle Data Safe
 
@@ -183,7 +183,8 @@ For more information please see [Data Safe Documentation](https://docs.oracle.co
 3.	In the table, click DBA_DEBRA. The **User Details** dialog box is displayed. Here you see she is not using her audit admin role, it may be recommended to reconsider her admin role.
 <!--Image-->
 ![](./images/3.3.5.png " ")<br/>
-4.	On the right, expand the roles to view the privileges. <!-- think it might be not needed-->
+4.	On the right, expand the roles to view the privileges. <!-- 
+it might be not needed-->
 5.	On the left, click the question mark next to **Risk**. Here you can review the factors that designate a user as Critical, High, Medium, or Low risk.<br/>
 6.	Close the User Details dialog box.<br/>
 <!--**NOTE** DBA Debra is not using her audit admin role, you can run the following code to revoke the AUDIT_ADMIN role from DBA_DEBRA: `revoke audit_admin from DBA_DEBRA`-->
