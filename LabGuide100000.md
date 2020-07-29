@@ -28,8 +28,8 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 - Oracle Data Safe administrators can enable Oracle Data Safe in a region of their tenancy. Be aware that it is not possible to disable Oracle Data Safe after it's enabled.
 ### **Step 1:** 
 1. To enable Oracle Data Safe, you must belong to one of the following groups in Oracle Cloud Infrastructure Identity and Access Management (IAM):
-2. Your tenancy's **Administrators group**. This group has permission on all resources in your tenancy.
-**NOTE:** A group in your tenancy that has the **manage** permission for Oracle Data Safe and can **inspect** groups in the tenancy.
+2. Your tenancy's **Administrators group**. This group has permission on all resources in your tenancy.<br/> 
+**NOTE:** A group in your tenancy that has the **manage** permission for Oracle Data Safe and can **inspect** groups in the tenancy.<br/> 
 3. Grant a group all permissions in a tenancy
 4. To grant the Data-Safe-Admins group all permissions on all resources in a tenancy, the policy might be:
 	- Allow group Data-Safe-Admins to manage all-resources in tenancy <!-- Change this to add code in md-->
