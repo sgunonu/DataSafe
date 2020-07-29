@@ -9,11 +9,8 @@ This lab walks you through the steps to get started using Oracle Data Safe on Or
 
 ### Objectives
 -   Learn how to register a target database
--   Learn how to assess database configurations with Oracle Data Safe 
--   Learn how to access userrs with Oracle Data Safe
--   Learn how to discover sensitive data model with Oracle Data Safe
--   Learn how to verify a sensitive data model with Oracle Data Safe
--   Learn how to update a sensitive data model with Oracle Data Safe
+-   Learn how to assess users and database configurations with Oracle Data Safe 
+-   Learn how to dicovery, verify and update a sensitive data model with Oracle Data Safe
 -   Learn how to create a sensitive type and category with Oracle Data Safe
 -   Learn how to mask senstive data with Oracle Data Safe
 
@@ -103,8 +100,8 @@ For more information please see [Data Safe Documentation](https://docs.oracle.co
 <!--Image 1.1-->
 ![](./images/SQLexecute.png "")<br/>
 <!--<img src= "./images/SQLexecute.png" align="left" height="48"width="48">-->
-**NOTE** If you don't have any data, populate your database with some new users and data to effectively use this lab. Use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/UsersScript.sql) to add new users.
-Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/TableScript.sql) to add new tables.
+**NOTE** 1. If you don't have any data, populate your database with some new users and data to effectively use this lab. Use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/UsersScript.sql) to add new users.
+2. Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1.oraclecloud.com/n/orasenatdecaretlhealth01/b/Workshop/o/TableScript.sql) to add new tables to the HCM1 schema.
 
 
 ## Part 2. Assess Database Configurations with Oracle Data Safe
@@ -333,8 +330,8 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 ### Step 4: 
 1. Return to SQL Developer.
 2. On the SQL Worksheet, run the following commands to drop the HCM1.EMPLOYEES.AGE column.
-	`ALTER TABLE EMPLOYEES
-	 `DROP COLUMN AGE;` <!-- Need to update this as a code snippet-->
+	`ALTER TABLE EMPLOYEES`
+	 `DROP COLUMN AGE;` <br/>
 	<!--Image-->
 	![](./images/5.4.1.png " ")<br/>
 3. To verify that the EMPLOYEES table no longer has an AGE column, run the following script:
@@ -516,6 +513,8 @@ Login as **HCM1** user, use the script [here](https://objectstorage.us-phoenix-1
 12. Click **Report** to view your successful Masking Job.<br/>
 13. Click **Expand All** to see all the values that have been masked. 
 ![](./images/8.2.12.png " ")<br/>
+
+**NOTE:** Run the following script in SQL developer if you face an error saying "Oracle Data Safe service account on your Autonomous Database does not have sufficient privileges. Grant DS$DATA_MASKING_ROLE by running the GRANT_ROLE procedure in DS_TARGET_UTIL PL/SQL package" `EXECUTE DS_TARGET_UTIL.GRANT_ROLE('DS$DATA_MASKING_ROLE');`<br/> 
 
 ### Step 3: 
 1. Open SQL Developer
