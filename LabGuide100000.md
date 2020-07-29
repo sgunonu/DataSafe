@@ -343,8 +343,7 @@ it might be not needed-->
 5. If the AGE column is still there, click the **Refresh** button to refresh the table. 
 
 ### Step 5: 
-**think we might drop in case of data masking**
-**think is we want to **
+<!-- optional-->
 1. Return to Oracle Data Safe.
 2. Click the **Home** tab, and then click **Data Discovery**.
 <!-- Image--> 
